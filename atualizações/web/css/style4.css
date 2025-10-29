@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+  justify-content: center;
+}
+
+.container .containerLeft {
+  width: 100vw;
+  height: 100vh;
+  
+}
+
+.container .containerLeft img {
+    width: 990px;
+  height: 990px;
+}
+
+.container .containerRight {
+  position: absolute;
+  height: 90vh;
+  width: 90vw;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 16px;
+  transform: translateX(-20px);
+  margin-right: 20px;
+}
+
+.container .containerRight h1 {
+    margin-bottom: 2rem;
+    color: rgb(0, 0, 0);
+}
+
+.container .containerRight form label input {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 5px;
+    padding: .75rem;
+    outline: 0;
+    border: 1px solid #CCC;
+    border-radius: 6px;
+}
+
+.container .containerRight form p {
+    text-align: right;
+    margin: 1rem 0;
+    font-size: 14px;
+}
+
+.container .containerRight form button {
+    width: 100%;
+    margin-top: 1rem;
+    padding: .75rem;
+    background: #3060a8;
+    border-radius: 6px;
+    border: 0;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.container .containerRight form button:hover {
+    background: #4e81c9;
+}
+
+@media (min-width: 768px) {
+    .container .containerRight {
+        position: static;
+        width: 60vw;
+        transform: translateX(0); 
+    }
+    .containerRight{
+       background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+    }
+}
+
+
+ /* Tooltip */
+    .tooltip {
+      position: fixed;
+      bottom: 20px;
+      right: 90px;
+      background-color: #f1f3f5;
+      padding: 8px 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Botão abrir */
+    .toggle-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      z-index: 1000;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 1000;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .popup.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .popup-header {
+      background-color: #25D366;
+      color: white;
+      padding: 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .popup-header .close-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .popup-body {
+      padding: 16px;
+    }
+
+    .popup-body p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      background-color: #f8f8f8;
+      padding: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      margin-bottom: 10px;
+    }
+
+    .contact:hover {
+      background-color: #e6e6e6;
+    }
+
+    .contact img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .contact-info {
+      flex-grow: 1;
+    }
+
+    .contact-info strong {
+      display: block;
+      color: #333;
+    }
+
+    .contact-info span {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .contact i {
+      color: #25D366;
+      font-size: 20px;
+    }
+
+    header{
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+
+    & button{
+        background-color:rgb(255, 255, 255);
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        color: rgb(0, 0, 0);
+    }
+    & button:hover{
+        background-color:rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+    }
+}
+.menu-toggle {
+    font-size: 30px;
+    padding: 10px;
+     background-color: #80cae7;
+    color: white;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    border: none;
+    border-radius: 5px;
+    transition: left 0.3s;
+    z-index: 1000;
+}
+.slide-menu.active {
+    left: 0;
+}
+.menu-toggle.active {
+    left:250px;
+}
+.slide-menu {
+    position:fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #80cae7;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+.slide-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.slide-menu ul li {
+    padding: 15px;
+}
+.slide-menu ul li a {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+}

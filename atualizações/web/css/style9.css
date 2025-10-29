@@ -1,0 +1,146 @@
+/* ==========================
+   RESET GERAL
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background: #f6fbfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+  background: linear-gradient(90deg, #4ec7e7, #2b9ed1);
+  color: #fff;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================
+   CONTAINER PRINCIPAL
+========================== */
+.checkout-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 70px 20px;
+}
+
+/* ==========================
+   FORMULÁRIO DE CHECKOUT
+========================== */
+
+/* ==========================
+   CARD PIX
+========================== */
+.descricao-pix {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 380px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.descricao-pix:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.descricao-pix h3 {
+  color: #2b9ed1;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.descricao-pix p {
+  color: #444;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.qrcode-fixo {
+  width: 180px;
+  height: 180px;
+  margin: 20px auto;
+  border: 3px solid #e0f2f8;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background: linear-gradient(90deg, #4ec7e7, #2b9ed1);
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  font-size: 0.95em;
+  margin-top: 60px;
+  line-height: 1.5;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+   margin-top: 600px
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media (max-width: 900px) {
+  .checkout-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px;
+  }
+
+  .checkout-card,
+  .descricao-pix {
+    width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .checkout-card h2 {
+    font-size: 1.6em;
+  }
+
+  .descricao-pix h3 {
+    font-size: 1.3em;
+  }
+}

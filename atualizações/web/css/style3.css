@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to right, navy, black);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 100%;
+    background: linear-gradient(to right, navy, black);
+    color: rgb(19, 18, 18);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_formulario {
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(to right, navy, black);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container_formulario h1 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.container_formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container_formulario label {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.container_formulario input[type="text"],
+.container_formulario input[type="number"],
+.container_formulario input[type="email"],
+.container_formulario input[type="date"],
+.container_formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container_formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.container_formulario input[type="submit"],
+.container_formulario button {
+    background-color: rgb(36, 28, 80);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.container_formulario input[type="submit"]:hover,
+.container_formulario button:hover {
+    background-color: #333;
+}
+
+.container_formulario input[type="submit"], 
+.container_formulario button { 
+    background-color: rgb(20, 20, 20);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px; cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+} 
+.container_formulario input[type="submit"]:hover, 
+.container_formulario button:hover { 
+    background-color: #333; 
+} 
+.back-button { 
+    margin-top: 20px; text-align: center; 
+}
