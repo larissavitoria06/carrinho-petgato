@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviço de Entrega</title>
+  <link rel="stylesheet" href="./css/entrega.css">
+</head>
+<body>
+
+  <header>
+    <h1>📦 Acompanhe seu Pedido</h1>
+    <p>ID do Pedido: <strong>#PG-18237</strong></p>
+  </header>
+
+  <main>
+    <section class="etapas-container">
+
+      <div class="etapa">
+        <div class="icone">🛍️</div>
+        <p>Pedido Recebido</p>
+        <small>Seu pedido foi confirmado</small>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <div class="icone">🚚</div>
+        <p>Em Transporte</p>
+        <small>Saindo do centro de distribuição</small>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <div class="icone">🗺️</div>
+        <p>Chegou ao Estado</p>
+        <small>Seu pedido chegou ao seu estado</small>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <div class="icone">📦</div>
+        <p>Em Rota de Entrega</p>
+        <small>O entregador está a caminho</small>
+      </div>
+
+      <div class="linha"></div>
+
+      <div class="etapa">
+        <div class="icone">🐾</div>
+        <p>Pedido Entregue</p>
+        <small>Esperamos que seu pet ame o presente! 💖</small>
+      </div>
+
+    </section>
+
+    <button onclick="avancarEtapa()">➡️ Atualizar Status</button>
+  </main>
+
+  <button onclick="confirmarEntrega()">Confirmar Entrega</button>
+
+  <main>
+    <section class="opcoes-entrega">
+      <h2>Sua nota de Entrega:</h2>
+
+      <div class="entrega-card">
+        <input type="radio" id="padrao" name="entrega" value="Entrega Padrão - Estrela - ⭐" checked>
+     
+          <strong>estrelas :⭐</strong><br>
+           <b>Entrega orivel</b><br>
+          <b>pessima entrega</b>
+        </label>
+      </div>
+
+      <div class="entrega-card">
+        <input type="radio" id="express" name="entrega" value="Entrega Expressa - Estrelas - ⭐⭐">
+        <label for="express">
+          <strong>Entrega ruim</strong><br>
+          <b>não gostei</b>do  serviço de entrega<br>
+          estrlas: <b>⭐⭐</b>
+        </label>
+
+      </div>
+      <div class="entrega-card">
+        <input type="radio" id="express" name="entrega" value="Entrega Expressa - Estrela  - ⭐⭐⭐">
+        <label for="express">
+          <strong>Entrega rasoavel</strong><br>
+          foi mais ou menos<b>7 dias de atraso</b><br>
+          Estrelas: <b>⭐⭐⭐</b>
+        </label>
+
+      </div>
+      <div class="entrega-card">
+        <input type="radio" id="express" name="entrega" value="Entrega Expressa - Estrelas - ⭐⭐⭐⭐">
+        <label for="express">
+          <strong>Entrega boa</strong><br>
+          Chega no praso <b>boa entrega</b><br>
+          Estrelas: <b>⭐⭐⭐⭐</b>
+        </label>
+      </div>
+
+      <div class="ultima-etapa">
+        <input type="radio" id="retirada" name="entrega" value="Estrelas - ⭐⭐⭐⭐⭐">
+        <label for="retirada">
+          <strong>Òtima Entrega</strong><br>
+          chegou com <b>Antecedencia</b><br>
+          Estrelas: <b>⭐⭐⭐⭐⭐</b>
+        </label>
+      </div>
+
+      
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy;2025 Pet Gato 🐾 | Todos os direitos reservados</p>
+  </footer>
+
+  <script src="./JS/js13.js"></script>
+
+</body>
+</html>

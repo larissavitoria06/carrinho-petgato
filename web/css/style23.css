@@ -1,0 +1,135 @@
+/* Reset e padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background: #f6fbfd;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #4ec7e7, #2b9ed1);
+  color: #fff;
+  padding: 25px 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.2em;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Seção PIX */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 70vh;
+}
+
+.descricao-pix {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.descricao-pix:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.descricao-pix h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #2b9ed1;
+}
+
+.descricao-pix p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.qrcode-fixo {
+  width: 170px;
+  height: 170px;
+  margin: 15px auto;
+  border: 3px solid #2b9ed1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #4ec7e7, #2b9ed1);
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  font-size: 1.0em;
+  line-height: 1.5;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 1.7rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.8em;
+  }
+
+  .descricao-pix {
+    width: 90%;
+    padding: 25px 15px;
+  }
+
+  .qrcode-fixo {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.total {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.total span {
+  color: #ff4d4f;
+}
+

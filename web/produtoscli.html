@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Gato</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e6f7ff; /* azul bebê claro */
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #b3e5ff; /* tom de azul bebê médio */
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #005b99;
+    }
+
+    header button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #0099cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    header button:hover {
+      background-color: #0077aa;
+    }
+
+    .filter-container {
+      margin: 20px 0;
+    }
+
+    .filter-container select {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #0099cc;
+      border-radius: 5px;
+    }
+
+    .produtos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    .produto-card {
+      width: 250px;
+      background-color: white;
+      border: 1px solid #99ccff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .produto-card:hover {
+      transform: scale(1.03);
+    }
+
+    .produto-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .produto-card .info {
+      padding: 15px;
+    }
+
+    .produto-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #005b99;
+    }
+
+    .produto-card p {
+      margin: 5px 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .produto-card .preco {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #0077aa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>𝓟𝓮𝓽 𝓖𝓪𝓽𝓸</h1>
+    <button onclick="window.location.href='index.html'">
+      Voltar para a tela inicial
+    </button>
+    <div class="filter-container">
+      <select id="categoriaFilter">
+        <option value="todos">Todos os Produtos</option>
+        <option value="cachorro">Cachorro</option>
+        <option value="gato">Gato</option>
+        <option value="outros">Outros Pets</option>
+        <option value="farmacia">Farmácia</option>
+      </select>
+    </div>
+  </header>
+
+  <div id="produtosLista" class="produtos-container">
+    <!-- Cartões de produto aparecerão aqui -->
+  </div>
+
+  <script>
+    // URLs das duas APIs
+    const apiLocal = 'http://localhost:3000/produto';
+    const apiVercel = 'https://back-end-tcc-gamma.vercel.app/produto';
+
+    // Função que busca produtos das duas APIs simultaneamente
+    async function buscarTodosProdutos() {
+      try {
+        // Promise.all para esperar ambas as respostas
+        const [resLocal, resVercel] = await Promise.all([
+          fetch(apiLocal),
+          fetch(apiVercel)
+        ]);
+
+        // Se alguma falhar, não trava o código — captura erro mais abaixo
+        const dadosLocal = resLocal.ok ? await resLocal.json() : [];
+        const dadosVercel = resVercel.ok ? await resVercel.json() : [];
+
+        // Combina os arrays — se quiser eliminar duplicatas, pode fazer filtragem aqui
+        const todos = [...dadosLocal, ...dadosVercel];
+
+        return todos;
+      } catch (erro) {
+        console.error('Erro ao buscar produtos das APIs:', erro);
+        return [];  // retorna array vazio em caso de erro
+      }
+    }
+
+    // Função para exibir produtos no DOM, filtrando por categoria se necessário
+    async function exibirProdutos(categoria = 'todos') {
+      const todosProdutos = await buscarTodosProdutos();
+
+      // Filtrar se categoria for diferente de 'todos'
+      let produtosFiltrados = todosProdutos;
+      if (categoria && categoria !== 'todos') {
+        produtosFiltrados = todosProdutos.filter(p => {
+          // Supondo que cada produto tenha propriedade `categoria`
+          // Se não tiver exatamente esse nome, ajuste conforme sua API
+          return p.categoria === categoria;
+        });
+      }
+
+      const container = document.getElementById('produtosLista');
+      container.innerHTML = '';  // limpa antes de inserir
+
+      if (produtosFiltrados.length === 0) {
+        container.innerHTML = `<p>Nenhum produto encontrado para a categoria "${categoria}".</p>`;
+        return;
+      }
+
+      produtosFiltrados.forEach(produto => {
+        const card = document.createElement('div');
+        card.classList.add('produto-card');
+
+        card.innerHTML = `
+          <img src="${produto.imagem}" alt="${produto.nome}">
+          <div class="info">
+            <h3>${produto.nome}</h3>
+            <p>${produto.descricao || ''}</p>
+            <p class="preco">R$ ${produto.preco}</p>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    // Evento de mudança no select de categoria
+    document.getElementById('categoriaFilter').addEventListener('change', function() {
+      const cat = this.value;
+      exibirProdutos(cat);
+    });
+
+    // Exibir todos ao carregar a página
+    window.addEventListener('DOMContentLoaded', (event) => {
+      exibirProdutos('todos');
+    });
+  </script>
+</body>
+</html>
