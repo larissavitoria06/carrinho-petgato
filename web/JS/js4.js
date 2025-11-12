@@ -10,9 +10,10 @@ function renderizarCarrinho() {
     const cardContainer = document.getElementById('card-container');
     if (!cardContainer) return;
 
-    cardContainer.innerHTML = '';
+    cardContainer.innerHTML = ''; // Limpar o container para evitar duplicação de itens.
     let subtotal = 0;
 
+    // Renderizar todos os itens do carrinho
     carrinho.forEach((item, index) => {
         subtotal += item.preco * item.quantidade;
         const card = document.createElement('div');
@@ -34,7 +35,6 @@ function renderizarCarrinho() {
     });
 
     atualizarTotal(subtotal);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
 function atualizarTotal(subtotal) {
@@ -48,18 +48,75 @@ function atualizarTotal(subtotal) {
     const taxa = subtotal >= 150 ? 0 : 25.10;
     const total = subtotal + taxa;
 
+    // Atualizar a interface com o subtotal
     subtotalElement.innerHTML = `R$ ${subtotal.toFixed(2)}<p>SubTotal</p>`;
     if (taxaElement) {
+        taxaElement.style.display = taxa > 0 ? 'block' : 'none';
         if (taxa > 0) {
-            taxaElement.style.display = 'block';
             taxaElement.innerHTML = `R$ ${taxa.toFixed(2)}<p>Taxa</p>`;
-        } else {
-            taxaElement.style.display = 'none';
         }
     }
 
     totalElement.textContent = `R$ ${total.toFixed(2)}`;
     if (totalFinalElement) totalFinalElement.textContent = `R$ ${total.toFixed(2)}`;
+}
+
+function aplicarCupom() {
+    const cupom = document.getElementById('text').value.toUpperCase();
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let subtotal = carrinho.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+    let desconto = 0;
+
+    // Lógica de aplicação dos cupons
+    if (cupom === "CUPOM10") {
+        desconto = 0.10 * subtotal;
+    } else if (cupom === "FRETEGRATIS" && subtotal >= 100) {
+        desconto = 25.10; // Frete grátis
+    } else if (cupom === "DESCONTO15" && subtotal >= 170) {
+        desconto = 15; // Desconto fixo de R$ 15
+    } else if (cupom === "DESCONTO25" && subtotal >= 200) {
+        desconto = 25; // Desconto fixo de R$ 25
+    } else if (cupom === "GEIOB940Z6") {
+        desconto = 0.05 * subtotal; // 5% de desconto
+    } else if (cupom === "SUPER50" && subtotal >= 310) {
+        desconto = 0.50 * subtotal; // 50% de desconto
+    } else {
+        alert("Cupom inválido ou não aplicável");
+        return;
+    }
+
+    // Atualiza o valor do desconto e total final
+    const totalComDesconto = subtotal - desconto;
+    atualizarTotalComDesconto(subtotal, desconto, totalComDesconto); // Passa todos os valores para a função de atualização
+}
+
+function atualizarTotalComDesconto(subtotal, desconto, totalComDesconto) {
+    const taxaElement = document.querySelector('.Valor-taxa');
+    const subtotalElement = document.querySelector('.Subtotal-compra');
+    const descontoElement = document.querySelector('.Subtotal-compra:last-child');
+    const totalElement = document.getElementById('totalValor');
+
+    const taxa = subtotal >= 150 ? 0 : 25.10;
+    const total = totalComDesconto - taxa;
+
+    if (subtotalElement) {
+        subtotalElement.innerHTML = `R$ ${subtotal.toFixed(2)}<p>SubTotal</p>`;
+    }
+
+    if (taxaElement) {
+        taxaElement.style.display = taxa > 0 ? 'block' : 'none';
+        if (taxa > 0) {
+            taxaElement.innerHTML = `R$ ${taxa.toFixed(2)}<p>Taxa</p>`;
+        }
+    }
+
+    if (descontoElement) {
+        descontoElement.innerHTML = `R$ ${desconto.toFixed(2)}<p>Desconto</p>`;
+    }
+
+    if (totalElement) {
+        totalElement.textContent = `R$ ${total.toFixed(2)}`;
+    }
 }
 
  function aplicarCupom() {
@@ -89,32 +146,6 @@ function atualizarTotal(subtotal) {
     // Atualiza o valor do desconto e total final
     const totalComDesconto = subtotal - desconto;
     atualizarTotal(subtotal, desconto, totalComDesconto); // Passa todos os valores para a função de atualização
-}
-
-function atualizarTotal(subtotal, desconto, totalComDesconto) {
-    // Atualiza os elementos do HTML
-    const taxaElement = document.querySelector('.Valor-taxa');
-    const subtotalElement = document.querySelector('.Subtotal-compra');
-    const descontoElement = document.querySelector('.Subtotal-compra:last-child'); // O último elemento de Subtotal-compra
-    const totalElement = document.getElementById('totalValor');
-    
-    // Taxa (apenas se o subtotal for menor que R$150)
-    const taxa = subtotal >= 150 ? 0 : 25.10;
-    const total = totalComDesconto + taxa;
-
-    // Atualiza os valores no HTML
-    if (subtotalElement) {
-        subtotalElement.innerHTML = `R$ ${subtotal.toFixed(2)}<p>SubTotal</p>`;
-    }
-
-    if (taxaElement) {
-        if (taxa > 0) {
-            taxaElement.style.display = 'block';
-            taxaElement.innerHTML = `R$ ${taxa.toFixed(2)}<p>Taxa</p>`;
-        } else {
-            taxaElement.style.display = 'none';
-        }
-    }
 
     if (descontoElement) {
         descontoElement.innerHTML = `R$ ${desconto.toFixed(2)}<p>Desconto</p>`;
@@ -132,6 +163,7 @@ document.getElementById('atualizarTotal').addEventListener('click', (event) => {
 });
 
 
+
 function alterarQuantidade(index, delta) {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     if (!carrinho[index]) return;
@@ -147,7 +179,7 @@ function removerProduto(index) {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     carrinho.splice(index, 1);
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
-    renderizarCarrinho();
+    renderizarCarrinho(); // Re-renderizar o carrinho sem o produto removido
 }
 
 function copiarCupom(id) {
@@ -162,6 +194,7 @@ function copiarCupom(id) {
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCarrinho();
 
+    // Formulário de checkout
     const openFormButton = document.getElementById('enviarPedido');
     const checkoutForm = document.querySelector('.checkout-card');
     const closeFormButton = document.getElementById('closeCheckoutBtn');
@@ -238,6 +271,71 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 alert("Método de pagamento inválido!");
             }
+
+            function aplicarCupom() {
+    const cupom = document.getElementById('text').value.toUpperCase();
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let subtotal = carrinho.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+    let desconto = 0;
+
+    // Lógica de aplicação dos cupons
+    if (cupom === "CUPOM10") {
+        desconto = 0.10 * subtotal;
+    } else if (cupom === "FRETEGRATIS" && subtotal >= 100) {
+        desconto = 25.10; // Frete grátis
+    } else if (cupom === "DESCONTO15" && subtotal >= 170) {
+        desconto = 15; // Desconto fixo de R$ 15
+    } else if (cupom === "DESCONTO25" && subtotal >= 200) {
+        desconto = 25; // Desconto fixo de R$ 25
+    } else if (cupom === "GEIOB940Z6") {
+        desconto = 0.05 * subtotal; // 5% de desconto
+    } else if (cupom === "SUPER50" && subtotal >= 310) {
+        desconto = 0.50 * subtotal; // 50% de desconto
+    } else {
+        alert("Cupom inválido ou não aplicável");
+        return;
+    }
+
+    // Aplicar o desconto no subtotal e na taxa (se houver)
+    const taxa = subtotal >= 150 ? 0 : 25.10;
+    const totalComDesconto = (subtotal + taxa) - desconto; // Aplicando o desconto no total (que inclui a taxa)
+
+    // Atualiza o valor do desconto e total final
+    atualizarTotalComDesconto(subtotal, taxa, desconto, totalComDesconto);
+}
+
+function atualizarTotalComDesconto(subtotal, taxa, desconto, totalComDesconto) {
+    const taxaElement = document.querySelector('.Valor-taxa');
+    const subtotalElement = document.querySelector('.Subtotal-compra');
+    const descontoElement = document.querySelector('.Subtotal-compra:last-child');
+    const totalElement = document.getElementById('totalValor');
+
+    // Exibir o subtotal e a taxa
+    if (subtotalElement) {
+        subtotalElement.innerHTML = `R$ ${subtotal.toFixed(2)}<p>SubTotal</p>`;
+    }
+
+    if (taxaElement) {
+        taxaElement.style.display = taxa > 0 ? 'block' : 'none';
+        if (taxa > 0) {
+            taxaElement.innerHTML = `R$ ${taxa.toFixed(2)}<p>Taxa</p>`;
+        }
+    }
+
+    // Mostrar o desconto aplicado
+    if (descontoElement) {
+        descontoElement.innerHTML = `R$ ${desconto.toFixed(2)}<p>Desconto</p>`;
+    }
+
+    // Exibir o total final
+    if (totalElement) {
+        totalElement.textContent = `R$ ${totalComDesconto.toFixed(2)}`;
+    }
+}
+
+
         });
     }
 });
+
+
