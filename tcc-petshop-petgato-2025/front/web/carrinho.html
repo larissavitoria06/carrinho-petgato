@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="./css/style7.css">
+</head>
+
+<body>
+  <header>
+    <h1>Carrinho de Compras</h1>
+    <button onclick="window.location.href='index.html'">Voltar</button>
+  </header>
+
+  <main>
+    <h2>Carrinho de Compras</h2>
+    <p>Produtos</p>
+
+    <div class="card-container" id="card-container">
+      <!-- Os cards serão inseridos dinamicamente aqui -->
+    </div>
+
+    <!-- Seção de Cupons de Desconto -->
+    <h6>Melhores promoções <p>e descontos para Você</p></h6>
+
+    <div class="cupom-container">
+      <h4>Cupons de Desconto</h4>
+
+      <div class="cupom" onclick="copiarCupom('CUPOM10')">
+        <p id="CUPOM10">CUPOM10</p>
+        <span>10% OFF em qualquer compra</span>
+      </div>
+
+      <div class="cupom" onclick="copiarCupom('FRETEGRATIS')">
+        <p id="FRETEGRATIS">FRETEGRATIS</p>
+        <span>Frete grátis em pedidos acima de R$ 100</span>
+      </div>
+
+      <div class="cupom" onclick="copiarCupom('DESCONTO15')">
+        <p id="DESCONTO15">DESCONTO15</p>
+        <span>R$ 15 de desconto em compras acima de R$ 170</span>
+      </div>
+
+      <div class="cupom" onclick="copiarCupom('DESCONTO25')">
+        <p id="DESCONTO25">DESCONTO25</p>
+        <span>R$ 25 de desconto em compras acima de R$ 200</span>
+      </div>
+
+      <div class="cupom" onclick="copiarCupom('GEIOB940Z6')">
+        <p id="GEIOB940Z6">GEIOB940Z6</p>
+        <span>5% de desconto em compras acima de R$ 10</span>
+      </div>
+
+      <div class="cupom" onclick="copiarCupom('SUPER50')">
+        <p id="SUPER50">SUPER50</p>
+        <span>50% OFF para pedidos de R$ 310+</span>
+      </div>
+    </div>
+
+    <div class="card-container2">
+      <h3 class="titulo-card">Preços</h3>
+      <h3 class="totalCarrinho">Valor</h3>
+     <br>
+   <div class="linha">
+    <br>
+    <br>
+
+      <div class="Valor-taxa">
+        R$ 25,10
+        <p>Taxa</p>
+      </div>
+
+      <div class="Subtotal-compra">
+        R$ 129,90
+        <p>SubTotal</p>
+      </div>
+
+      <div class="Subtotal-compra">
+        R$ 00,00
+        <p>Desconto</p>
+      </div>
+      
+      <div class="Total">
+        <p>🛒 Total:</p>
+        <span id="totalValor">R$ 0,00</span>
+      </div>
+
+      <button id="enviarPedido" onclick="enviarPedido()">Fazer Pedido</button>
+
+    </div>
+  </main>
+
+  <!-- Checkout -->
+  <div class="checkout-card">
+    <h1>Finalizar Compra</h1>
+    <form id="checkoutForm">
+      <label for="nome">
+        Nome Completo
+        <input type="text" id="nome" placeholder="Digite seu nome" required>
+      </label>
+
+      <label for="email">
+        Email
+        <input type="email" id="email" placeholder="Digite seu email" required>
+      </label>
+
+      <label for="telefone">
+        Telefone
+        <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+      </label>
+
+      <label for="endereco">
+        Endereço
+        <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade" required>
+      </label>
+
+      <label for="cep">
+        CEP
+        <input type="number" id="cep" placeholder="00000-000" required>
+      </label>
+
+      <label for="cupom">
+        Desconto
+        <input type="text" id="text" placeholder="seu cupom" required>
+      </label>
+
+
+      <div class="oferta-banner">
+        <p>🔴 Oferta limitada: ICMS 20% discount grátis, <strong>economize R$2,01</strong></p>
+        <p>Entrega: 6-17 dias, ou probabilidade alta de entrega em até <strong>9 dias</strong></p>
+      </div>
+
+      <!-- Métodos de Pagamento -->
+      <section class="payment-methods">
+        <h3>Método de Pagamento <span class="status-check">✔</span></h3>
+
+        <label class="metodo-item selected" data-method="pix">
+          <input type="radio" name="metodoPagamento" value="pix" checked>
+          <div class="metodo-content">
+            <img src="./pagamentos/PIX-1.webp" alt="Pix" class="metodo-icon">
+            <span>Pix 💸</span>
+          </div>
+        </label>
+
+        <label class="metodo-item" data-method="credit-card">
+          <input type="radio" name="metodoPagamento" value="credito">
+          <div class="metodo-content">
+            <span class="metodo-label">Cartão de crédito local com parcelamento</span>
+            <div class="bandeiras">
+              <img src="./pagamentos/icone cartão 2.jpg" alt="Mastercard">
+              <img src="./pagamentos/nubank.png" alt="Nubank">
+              <img src="./pagamentos/banco brasil.png" alt="Banco do Brasil">
+            </div>
+          </div>
+        </label>
+
+        <label class="metodo-item" data-method="debit-card">
+          <input type="radio" name="metodoPagamento" value="debito">
+          <div class="metodo-content">
+            <span class="metodo-label">Cartão de débito local/Internacional 💳</span>
+            <div class="bandeiras">
+              <img src="./pagamentos/melhor" alt="Cartão">
+              <img src="./pagamentos/nubank.png" alt="Nubank">
+              <img src="./pagamentos/banco brasil.png" alt="Banco do Brasil">
+            </div>
+          </div>
+        </label>
+
+      </section>
+
+       <button id="atualizarTotal" onclick="atualizarTotal()">Atualizar</button>
+
+      <footer class="fixed-footer">
+        <button type="button" class="btn-continue">Finalizar</button>
+      </footer>
+    </form>
+  </div>
+<br>
+<br>
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre o PetShop</h3>
+        <p>Somos uma loja dedicada ao bem-estar dos seus pets. Oferecemos produtos de qualidade e serviços personalizados para cães, gatos e outros animais.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Links Úteis</h3>
+        <ul>
+          <li><a href="#">Produtos para Cães</a></li>
+          <li><a href="#">Produtos para Gatos</a></li>
+          <li><a href="#">Serviços de Banho e Tosa</a></li>
+          <li><a href="#">Consultas Veterinárias</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Rua das Flores, 123 - Centro, São Paulo - SP</p>
+        <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+        <p><i class="fas fa-envelope"></i> contato@petshop.com.br</p>
+        <p><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h | Sáb: 9h às 14h</p>
+      </div>
+
+    
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p>Receba dicas e promoções exclusivas!</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Seu e-mail" required>
+          <button type="submit">Inscrever</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 PetShop. Todos os direitos reservados. Desenvolvido com ❤️ para pets.</p>
+    </div>
+  </footer>
+
+  <script src="./js/js4.js"></script>
+</body>
+
+</html>

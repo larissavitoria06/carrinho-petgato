@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Credito</title>
+  <link rel="stylesheet" href="./css/styleC.css">
+</head>
+
+<body>
+  <header>
+    <h1>💳 Pagamento Credito</h1>
+    <br>
+    <p>🚚 Devolução gratuita</p>
+     <button onclick="window.location.href='carrinho.html'">Voltar</button>
+  </header>
+<br>
+   <div class="bandeiras">
+              <img src="./pagamentos/cartoes banner.jpg" alt="Mastercard">
+              <img src="./images/Elo.webp" alt="Nubank">
+              <img src="./images/American_Express.svg" alt="Banco do Brasil">
+            </div>
+            <br>
+            <br>
+
+  <div class="total">
+    <h3>Total: <span>R$0,00</span></h3>
+  </div>
+
+      <div class="Valor-Final">
+  <h3>Com Juros: <span id="totalValor">R$0,00</span></h3>
+</div>
+
+  <form class="form-pagamento" onsubmit="PedidoFeito(event)">
+    <label>Número do Cartão</label>
+    <input type="text" placeholder="💳 0000 0000 0000 0000" maxlength="16" required>
+
+    <div class="linha">
+      <div>
+        <label>Validade</label>
+        <input type="month" required>
+      </div>
+
+      <div>
+        <label>CVV</label>
+        <input type="text" placeholder="3-4 dígitos" maxlength="4" required>
+      </div>
+    </div>
+     <div class="formulario-container">
+    <h4>Parcelamento</h4>
+    <select>
+        <option value="">Selecione...</option>
+        <option value="1x">1x no cartão - À vista</option>
+        <option value="2x">2x sem juros</option>
+        <option value="3x">3x sem juros</option>
+        <option value="4x">4x sem juros</option>
+        <option value="5x">5x sem juros</option>
+        <option value="6x">6x sem juros</option>
+        <option value="7x">7x com juros</option>
+        <option value="8x">8x com juros</option>
+        <option value="9x">9x com juros</option>
+        <option value="10x">10x com juros</option>
+        <option value="12x">12x com juros</option>
+    </select>
+
+</div>
+
+    <button type="submit">Concluir Pagamento</button>
+    <br>
+    <br>
+  </form>
+  </div>
+
+<!-- IMPORTA O EMAILJS -->
+  <script src="./js/js14.js"></script>
+
+</body>
+</html>

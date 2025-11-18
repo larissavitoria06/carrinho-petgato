@@ -1,0 +1,633 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-family: 'CircularXX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --c1: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  --c2: rgb(180, 227, 241);
+  --c3: rgb(75, 197, 235);
+  --c4: rgba(197, 218, 226, 0.623);
+  --c5: rgb(136, 132, 132); 
+  --t1: rgba(80, 34, 74, 0.3);
+  --t2: rgba(0, 0, 0, 0.7);
+}
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+header {
+  background: var(--c1);
+  color: black;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  justify-content: space-around; /* DISTRIBUI OS ITENS DO CABEÇALHO */
+  align-items: center; /* ALINHA OS ITENS DO CABEÇALHO */
+}
+header h1 {
+  font-family: 'Brush Script MT', cursive;
+  color: rgb(6, 43, 255);
+  font-size: 36.5px; /* TAMANHO DO TEXTO */
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 8%; /* POSIÇÃO DO TEXTO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DO TEXTO, VAI APARECER UMA MÃOZINHA */
+}
+header img {
+  width: 37px; /* TAMANHO DAS IMAGENS */
+  border: none;
+}
+header button {
+  background-color: transparent;
+  border: none;
+  color: black; /* COR DO TEXTO */
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DOS BOTÕES, VAI APARECER UMA MÃOZINHA */
+}
+header button:hover {
+  color: white; /* COR DO TEXTO AO PASSAR O MOUSE EM CIMA */
+  transition: 0.3s; /* TEMPO DA TRANSIÇÃO */
+  font-size: 1.8vh;
+}
+@media (max-width: 768px) {
+  header h1 {
+    width: 60%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  header button img {
+    width: 25px; 
+  }
+}
+.Containerheader {
+  background-color: rgba(231, 231, 250, 0.445);
+  position: relative;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  justify-content: center;
+}
+.Containerheader button {
+  width: 130px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: var(--c5);
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Anúncios buttons */
+.anuncios {
+  width: 70%;
+  height: 12.6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.anuncios button {
+  background: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: space-between;
+  gap: 11px; /* ESPAÇO ENTRE TEXTO E IMG */
+  padding: 3%;
+  font-size: 60%;
+  position: relative;
+  top: 5px;
+  left: -3%;
+  width: 28%;
+  border-radius: 5px;
+  height: 100%;
+  border-color: rgba(236, 231, 231, 0.205);
+}
+.banner {
+  position: relative;
+  width: 60%;
+  top: 0px;
+  left: 0;
+  padding: 15px;
+  border-radius: 75px 75px 85px 75px;
+  text-align: center;
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  overflow: hidden;
+  margin: 4vh;
+}
+.banner-text {
+  display: none; /* ESCONDE O TEXTO */
+  color: black;
+  transition: color 0.5s ease; /* FAZ A TRANSIÇÃO DO TEXTO */
+}
+.banner-text.active {
+  display: block; /* MOSTRA O TEXTO */
+}
+.carousel {
+  position: relative;
+  top: 10px;
+  left: 0;
+  width: 80%;
+  height: 400px; /* ALTURA DO CAROUSEL AJUSTADA */
+  overflow: hidden; /* ESCONDE PARTES EXTERNAS DAS IMAGENS */
+  display: flex; /* PERMITE CENTRALIZAR AS IMAGENS */
+  justify-content: center; /* CENTRA HORIZONTALMENTE */
+  align-items: center; /* CENTRA VERTICALMENTE */
+}
+.carousel img {
+  width: 80%; 
+  height: auto;
+  opacity: 0; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  transition: all 0.6s ease-in-out; 
+  border-radius: 15px;
+  pointer-events: none; 
+}
+.carousel img.active {
+  opacity: 1;
+  z-index: 3;
+  transform: translate(-50%, -50%) scale(1);
+  filter: blur(0);
+  pointer-events: auto;
+}
+.carousel img.left {
+  opacity: 0.7; 
+  z-index: 2;
+  transform: translate(-150%, -50%) scale(0.85); 
+  filter: blur(3px); 
+}
+.carousel img.right {
+  opacity: 0.7; 
+  z-index: 2;
+  transform: translate(50%, -50%) scale(0.85); 
+  filter: blur(3px);
+}
+
+.carousel img.hidden {
+  opacity: 0;
+  z-index: 1;
+  transform: scale(0.5); 
+  pointer-events: none; 
+}
+
+.carousel-indicators {
+  display: flex; 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+.dot {
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+  background: rgba(65, 63, 47, 0.5); 
+  cursor: pointer;
+  transition: background 0.3s; 
+}
+
+.dot.active-dot {
+  background: rgb(18, 14, 231); 
+}
+@media (max-width: 768px) {
+  .carousel {
+    width: 90%;
+    height: 250px; 
+  }
+
+  .carousel img {
+    width: 90%; 
+  }
+
+  .prev,
+  .next {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0; 
+    transform: translateY(-20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+/* ANIMAL BUTTONS */
+.animal {
+  border: none;
+  width: 100%;
+  height: 40%;
+  position: relative;
+  top: 0;left: -7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.animal button {
+  border: none;
+  background-color:rgb(75, 197, 235);
+  width: 20%;
+  height: 90px;
+  padding: 0.7%;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: center;
+  border-radius: 5%;
+  gap: 50px; /* ESPAÇO ENTRE TEXTO E IMG */
+}
+
+.animal button img {
+  width: 30%;
+  height: 50%;
+  border-radius: 80%;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA A BARRA SOME */
+@media (max-width: 768px) {
+  .animal img {
+    display: none; /* some completamente */
+  }
+
+  .animal button {
+    width: 100%;
+    padding: 5px;
+    border-radius: 25%;
+  }
+
+  .animal {
+    position: relative;
+    top: 0;
+    left: -1%;
+    width: 80%;
+    gap: 2%;
+    padding: 10px;
+  }
+}
+
+.outros, .pet {
+  width: 30%;
+  height: 10%;
+  position: relative;
+  top: 0;left: -5%;
+  font-size: 100%;
+  color: black;
+  font-weight: bold;
+}/* --- wrapper do fundo ondulado --- */
+.section-fundo {
+  position: relative;
+  width: 100%;
+  min-height: 0;          /* controla "a altura" do bloco — ajuste se precisar */
+  margin: 40px 0;             /* espaçamento externo (opcional) */
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .section-fundo {
+    width: 40%;
+    position: relative;
+    top: 0;left: 0;
+  }}
+
+/* SVG do fundo (faz as ondulações nas extremidades) */
+.fundo-svg {
+  position: absolute;
+  left: 0;
+  top: -16%;
+  width: 200%;
+  height: 150%;                /* atrás do conteúdo */
+  pointer-events: none;       /* deixa os botões clicáveis */
+  display: block;
+}
+
+/* conteúdo que fica sobre o SVG */
+.fundoparcial-content {
+  position: relative;             /* acima do SVG */
+  padding: 30px 20px;         /* controla o "padding" interno (altura visível) */
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: #fff;                /* textos brancos por padrão — ajuste se quiser */
+}
+
+/* ----- seus estilos de botões (adaptados) ----- */
+.animal {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;            /* quebra em linhas quando precisar */
+  margin: 14px 0;
+}
+
+.animal button {
+  border: none;
+  background-color: rgb(75, 197, 235);
+  min-width: 160px;           /* fica mais amigável em telas pequenas */
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #003;                /* cor do texto do botão (ajuste se quiser) */
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .fundo-svg, .fundoparcial-content, .animal, .pet, .section-fundo  {
+    display: none; /* some completamente */
+  }}
+
+/* img dentro do botão */
+.animal button img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* títulos dentro (pet/outros) */
+.pet h1, .outros h1 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+  .fundoparcial-content { padding: 20px 12px; }
+  .animal button { min-width: 48%; height: 56px; border-radius: 12px; }
+  .animal button img { display: inline-block; width: 28px; height: 28px; }
+}
+
+/* JUROS */
+.juros {
+  width: 80%;
+  height: 12.6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 5%;
+  left: 2%;
+  gap: 2%;
+}
+
+.juros button {
+  width: 80%;
+  background: transparent;
+  justify-content: space-around;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  gap: 11px; 
+  padding: 3%;
+  font-size: 60%;
+  position: relative;
+  top: 3%;
+  left: -3%;
+  width: 28%;
+  border-radius: 5px;
+  height: 100%;
+  border-color: rgba(236, 231, 231, 0.205);
+  gap: 10%;
+}
+
+.juros button img {
+  background: transparent;
+  width: 15%;
+  height: 190%;
+  position: relative;
+  top: 0;
+  left: -6%;
+}
+.produtos-wrapper {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+#produtos-container {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+#produtos-container .card {
+  flex: 0 0 250px;  
+  height: 400px;   
+  background: #f0f0f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#btn-prev{
+  position: relative;
+  top: -50%;
+  left: -10%;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(0, 0, 0, 0.247);
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
+#btn-next{
+  position: relative;
+  top: -50%;
+  left: 10%;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(0, 0, 0, 0.247);
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+.produtos-navigation {
+  position: absolute;    
+  top: 50%;                      
+  width: 100%;   
+  height: 100%;           
+  display: flex;         
+  justify-content: space-between;
+  gap: 110%;
+  transform: translateY(-10%);
+  pointer-events: none; 
+}
+@media (max-width: 768px) {
+  .produtos-navigation {
+    gap: 10%;
+  }
+}
+.produtos-navigation button {
+  pointer-events: auto;
+  background: rgb(0, 0, 0);
+  color: #fff;                
+  border: none;                
+  border-radius: 15%;  
+  padding: 5px;                
+  height: 7%;
+  cursor: pointer;             
+  font-size: 14px; 
+  justify-content: space-around;
+}
+
+.card {
+  height: 100%;
+  border: 3px solid rgb(0, 38, 252);
+  position: relative;
+  background-color: rgba(205, 235, 252, 0.418);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  border-radius: 2%;
+  justify-content: space-around;
+  border-color: rgba(240, 234, 186, 0.877);
+}
+
+.card img {
+  width: 70%;
+  position: relative;
+  top: 3%;
+  left: 0;
+  border-radius: 5%;
+  margin-bottom: 5%;
+}
+
+/* Botões dentro do card alinhados lado a lado */
+.button-group {
+  position: relative;
+  
+  top: 10%;
+  left: 0;
+  display: flex; /* Alinha os botões em linha */
+  gap: 10px; /* Espaçamento entre os botões */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  margin-top: 10px; /* Espaço acima do grupo de botões */
+}
+
+.button-group button {
+  position: relative;
+  top: -50%;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(215, 220, 250, 0.247);
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(128, 124, 124);
+  display: flex; /* Para alinhar o conteúdo interno (ex: img) */
+  align-items: center; /* Centraliza verticalmente o conteúdo do botão */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 5px; /* Espaço entre texto e imagem dentro do botão */
+  min-width: 80px; /* Largura mínima para os botões */
+}
+  .tosavet{
+    width: 90%;
+    height: 150%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 0;left: -2%;
+    gap: 3%;
+}
+    .banho, .vet {
+      width: 70%;
+      height: 350px;
+      background-color: rgba(11, 167, 206, 0.438);
+      display: flex;
+      justify-content: space-around;
+      border-radius: 25px;
+      
+      
+
+       & img{
+        width: 50%;
+        border-radius: 70% 0 0 0 ; 
+        position: relative;
+        top: 0;left: 10%; 
+      }
+      & h2{
+        font-size: 15px;
+        color: rgb(233, 224, 142);
+        position: relative;
+        top: 25%;left: 5%;
+      }
+    }
+@media (max-width:900px) {
+  .produtos-grid-dup { grid-template-columns: repeat(2, 1fr); }
+  .conteudo-produto-dup { flex-direction:column; align-items:flex-start; }
+}
+@media (max-width:480px) {
+  .produtos-grid-dup { grid-template-columns: 1fr; }
+}

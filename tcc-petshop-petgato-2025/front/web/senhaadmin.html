@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Gato</title>
+  <style>
+    :root{
+      --c1: #ffffff;
+      --c2: #eeedeb;
+      --c3: #cce2e2;
+      --c4: #b3b3b3;
+      --c5: rgb(180, 227, 241);
+      --c6: rgb(75, 197, 235);
+      --c7: rgba(46, 143, 223, 0.774);
+      --c8: #000000;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--c6);
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      display: block;
+      margin: 20px auto 10px auto; 
+      height: 250px;
+    }
+
+    .login-container {
+      background: var(--c1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .password-display {
+      font-size: 24px;
+      letter-spacing: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      background: var(--c2);
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .keypad button {
+      font-size: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: var(--c7);
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .keypad button:hover {
+      background: black;
+    }
+
+    .actions button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #clear {
+      background: #dc3545;
+      color: white;
+    }
+
+    #clear:hover {
+      background: #a71d2a;
+    }
+
+    #login {
+      background: var(--c5);
+      color: white;
+      margin-top: 10px;
+    }
+
+    #login:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+
+    #error {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+ <img src="pepet3.png" alt="logo" class="logo">
+
+ 
+  <div class="login-container">
+    <h2>Login</h2>
+    <div class="password-display" id="password">******</div>
+
+    <div class="keypad">
+      <button onclick="addDigit('1')">1</button>
+      <button onclick="addDigit('2')">2</button>
+      <button onclick="addDigit('3')">3</button>
+      <button onclick="addDigit('4')">4</button>
+      <button onclick="addDigit('5')">5</button>
+      <button onclick="addDigit('6')">6</button>
+      <button onclick="addDigit('7')">7</button>
+      <button onclick="addDigit('8')">8</button>
+      <button onclick="addDigit('9')">9</button>
+      <button onclick="clearPassword()" id="clear">C</button>
+      <button onclick="addDigit('0')">0</button>
+    </div>
+
+    <div class="actions">
+      <button id="login" disabled onclick="login()">Entrar</button>
+    </div>
+    <div id="error"></div>
+  </div>
+
+  <script>
+    let password = "";
+
+    function addDigit(num) {
+      if (password.length < 6) {
+        password += num;
+        updateDisplay();
+      }
+    }
+
+    function clearPassword() {
+      password = "";
+      updateDisplay();
+      document.getElementById("error").innerText = "";
+    }
+
+    function updateDisplay() {
+      const masked = "*".repeat(password.length).padEnd(6, "-");
+      document.getElementById("password").innerText = masked;
+      document.getElementById("login").disabled = (password.length !== 6);
+    }
+
+    function login() {
+      if (password === "101010") {
+        alert("Bem Vindo Admin!");
+        window.location.href = "admin.html"; // Redireciona para a página de administração
+      } else {
+        document.getElementById("error").innerText = "Senha incorreta!";
+        clearPassword();
+      }
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>

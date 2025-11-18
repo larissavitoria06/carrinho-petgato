@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagamento - Crédito</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #4a90e2;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4a90e2;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 5px;
+    }
+
+    .parcelas-info {
+      background: #eef4ff;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border-left: 4px solid #4a90e2;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #3277c6;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  💳 Pagamento Crédito
+</header>
+
+<div class="container">
+  <h2>Dados do Cartão</h2>
+
+  <label>Número do Cartão</label>
+  <input type="text" placeholder="0000 0000 0000 0000" />
+
+  <label>Nome Impresso no Cartão</label>
+  <input type="text" placeholder="Seu nome aqui" />
+
+  <label>Validade</label>
+  <input type="month" />
+
+  <label>CVV</label>
+  <input type="password" placeholder="***" />
+
+  <label>Parcelamento</label>
+  <select id="parcelas">
+    <option>1x sem juros</option>
+    <option>2x sem juros</option>
+    <option>3x sem juros</option>
+    <option>4x com juros</option>
+    <option>5x com juros</option>
+  </select>
+
+  <div class="parcelas-info">
+    <p><strong>Total da Compra:</strong> R$ 250,00</p>
+    <p id="detalhe-parcela">Pagamento à vista: R$ 250,00</p>
+  </div>
+
+  <button>Pagar Agora</button>
+</div>
+
+<script>
+  const select = document.getElementById('parcelas');
+  const detalhe = document.getElementById('detalhe-parcela');
+
+  select.addEventListener('change', () => {
+    const valorTotal = 250;
+    let parcelas = select.value;
+
+    switch(parcelas) {
+      case '1x sem juros':
+        detalhe.textContent = `Pagamento à vista: R$ ${valorTotal.toFixed(2)}`;
+        break;
+      case '2x sem juros':
+        detalhe.textContent = `2 parcelas de R$ ${(valorTotal/2).toFixed(2)} (sem juros)`;
+        break;
+      case '3x sem juros':
+        detalhe.textContent = `3 parcelas de R$ ${(valorTotal/3).toFixed(2)} (sem juros)`;
+        break;
+      case '4x com juros':
+        let total4 = valorTotal * 1.05;
+        detalhe.textContent = `4 parcelas de R$ ${(total4/4).toFixed(2)} (5% de juros)`;
+        break;
+      case '5x com juros':
+        let total5 = valorTotal * 1.10;
+        detalhe.textContent = `5 parcelas de R$ ${(total5/5).toFixed(2)} (10% de juros)`;
+        break;
+    }
+  });
+</script>
+
+</body>
+</html>

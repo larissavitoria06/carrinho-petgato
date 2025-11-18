@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style6.css">
+    <title>Cadastro de Pet</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container_formulario">
+            <h1>Cadastro do Pet para Consulta</h1>
+
+            <form id="cadastroPet">
+
+                <label for="nomePet">Nome do Pet:</label>
+                <input type="text" id="nomePet" name="nomePet" required>
+                
+                <label>Espécie:</label>
+                <input type="radio" id="cachorro" name="especiePet" value="cachorro">
+                <label for="cachorro">Cachorro</label><br>
+
+                <input type="radio" id="gato" name="especiePet" value="gato">
+                <label for="gato">Gato</label><br>
+
+                <input type="radio" id="peixe" name="especiePet" value="peixe">
+                <label for="peixe">Peixe</label><br>
+
+                <input type="radio" id="passaro" name="especiePet" value="passaro">
+                <label for="passaro">Pássaro</label><br>
+
+                <label for="racaPet">Raça:</label>
+                <input type="text" id="racaPet" name="racaPet" required>
+                
+                <label for="nomeProprietario">Nome do Proprietário:</label>
+                <input type="text" id="nomeProprietario" name="nomeProprietario" required>
+                
+                <label for="nascpet">Data de Nascimento do Pet:</label>
+                <input type="date" id="nascpet" name="nascpet" required>
+                
+                <label for="emailProprietario">E-mail:</label>
+                <input type="email" id="emailProprietario" name="emailProprietario" required>
+                
+                <label for="dados">Possui algum problema de saúde ou alergias:</label>
+                <input type="text" id="dados" name="dados">
+                
+                <button type="button" onclick="Cadastrar()">Cadastrar</button>
+            </form>
+
+            <div class="back-button"> 
+                <a href="admin.html"><button id="vol">Voltar</button></a> 
+            </div>
+        </div>
+      </div>
+    
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<div class="tooltip">Precisa de ajuda?</div>
+
+
+<button class="toggle-button" id="open-button">
+  <i class="fab fa-whatsapp"></i>
+</button>
+
+
+<div class="popup" id="popup">
+  <div class="popup-header">
+    <div>Iniciar uma conversa</div>
+    <button class="close-btn" id="close-button">&times;</button>
+  </div>
+
+    <div class="contact" onclick="window.open('https://wa.me/19995601381','_blank')">
+      <img src="cricri.jpg" alt="Cris PetGato">
+      <div class="contact-info">
+        <strong>Cris PetGato</strong>
+        <span>Financeiro/Creche</span>
+      </div>
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <script src="JS/js5.js"></script>
+</body>
+</html>

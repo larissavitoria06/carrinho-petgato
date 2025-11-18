@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Débito</title>
+  <link rel="stylesheet" href="./css/styleD.css">
+</head>
+
+<body>
+  <header>
+    <h1>💳 Pagamento Débito</h1>
+    <br>
+    <p>🚚 Devolução gratuita</p>
+     <button onclick="window.location.href='carrinho.html'">Voltar</button>
+  </header>
+<br>
+   <div class="bandeiras">
+              <img src="./pagamentos/cartoes banner.jpg" alt="Mastercard">
+              <img src="./images/Elo.webp" alt="Nubank">
+              <img src="./images/American_Express.svg" alt="Banco do Brasil">
+            </div>
+            <br>
+            <br>
+
+  <div class="total">
+    <h3>Total: <span>R$0,00</span></h3>
+  </div>
+
+  <form class="form-pagamento" onsubmit="PedidoFeito(event)">
+    <label>Número do Cartão</label>
+    <input type="text" placeholder="💳 0000 0000 0000 0000" maxlength="16" required>
+
+    <div class="linha">
+      <div>
+        <label>Validade</label>
+        <input type="month" required>
+      </div>
+
+      <div>
+        <label>CVV</label>
+        <input type="text" placeholder="3-4 dígitos" maxlength="4" required>
+      </div>
+    </div>
+    
+     <button type="submit">Concluir Pagamento</button>
+    <br>
+    <br>
+  </form>
+
+
+   
+  </div>
+</body>
+</html>
+
+  <script src="./js/js10.js"></script>
+  
+</body>
+</html>

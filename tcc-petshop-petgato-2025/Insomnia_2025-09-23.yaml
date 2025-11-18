@@ -1,0 +1,409 @@
+type: collection.insomnia.rest/5.0
+name: tcc
+meta:
+  id: wrk_e78dee595d41460d961cc5c19789bab5
+  created: 1746555930685
+  modified: 1747220043031
+  description: ""
+collection:
+  - name: consulta pet
+    meta:
+      id: fld_5e2d82a468ed423fb3a0dd1de82c10bc
+      created: 1747220051074
+      modified: 1757437073941
+      sortKey: -1747220051074
+      description: ""
+    children:
+      - url: http://localhost:3000/consultas/2
+        name: delete pet
+        meta:
+          id: req_3282423331ab4f2da2c86c4078f1a142
+          created: 1746555954126
+          modified: 1758625572699
+          isPrivate: false
+          description: ""
+          sortKey: -1747220057272
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/consultas/2
+        name: update pet
+        meta:
+          id: req_57a267ae1ec14e76816364700e9236fb
+          created: 1746555955469
+          modified: 1758625346360
+          isPrivate: false
+          description: ""
+          sortKey: -1747220057172
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"id": 2,
+            		"nomePet": "Lulu",
+            		"especiePet": "cachorro",
+            		"racaPet": "srd",
+            		"nomeProprietario": "Larissa Santos",
+            		"nascpet": "2020-02-25T00:00:00.000Z",
+            		"emailProprietario": "larisssa@gmail.com",
+            		"dados": "gato"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/consultas
+        name: read pet
+        meta:
+          id: req_d0a3641843f940b880eff1b76fbcdbc2
+          created: 1746555956701
+          modified: 1758625038965
+          isPrivate: false
+          description: ""
+          sortKey: -1747220057072
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/consultas
+        name: create pet
+        meta:
+          id: req_fba89805e4e34c63b4a3631467935687
+          created: 1746555964960
+          modified: 1758625045109
+          isPrivate: false
+          description: ""
+          sortKey: -1747220056972
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"nomePet": "Mel",
+            		"especiePet": "cachorro",
+            		"racaPet": "srd",
+            		"nomeProprietario": "Evelyn",
+            		"nascpet": "2021-12-13T00:00:00.000Z",
+            		"emailProprietario": "lyne@gmail.com",
+            		"dados": "nao"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: cadastro cliente
+    meta:
+      id: fld_664e16b65be34c4b9c736dfd03654f94
+      created: 1747220301880
+      modified: 1757437069382
+      sortKey: -1747220301880
+      description: ""
+    children:
+      - url: http://localhost:3000/cadastro
+        name: read
+        meta:
+          id: req_c54ecbbe39c641a8b86689ab3f1242cd
+          created: 1747220308476
+          modified: 1758628422045
+          isPrivate: false
+          description: ""
+          sortKey: -1747220308476
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/cadastro
+        name: create
+        meta:
+          id: req_03337940435f4df98bb08780febdd475
+          created: 1747220309549
+          modified: 1758633485642
+          isPrivate: false
+          description: ""
+          sortKey: -1747220309549
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"id": 1,
+            		"email": "teste13@gmail.com",
+            		"senha": "123345fghghjgh"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/cadastro/7
+        name: patch
+        meta:
+          id: req_1222a5ace865451a98bd2f35440e75c4
+          created: 1756896732271
+          modified: 1758633506807
+          isPrivate: false
+          description: ""
+          sortKey: -1756896732271
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            		"id": 7,
+            		"email": "teste3@gmail.com"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/cadastro/6
+        name: delete
+        meta:
+          id: req_8175344f4c604117b772bd2b55b9bab4
+          created: 1756896744420
+          modified: 1758633583877
+          isPrivate: false
+          description: ""
+          sortKey: -1756896744420
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.5.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: login
+    meta:
+      id: fld_babc312721b44a3c91265d5d84ee80ef
+      created: 1756299500399
+      modified: 1757437068035
+      sortKey: -1756299500399
+      description: ""
+    children:
+      - url: http://localhost:3000/usuarios/7
+        name: delete
+        meta:
+          id: req_b29c103eacd54b57be1475b9888ddd77
+          created: 1756299504974
+          modified: 1758635790267
+          isPrivate: false
+          description: ""
+          sortKey: -1756299504974
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.5.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVzdGUyMGFAZ21haWwuY29tIiwiaWF0IjoxNzU4NjM1NTczLCJleHAiOjE3NTg2MzczNzN9.hWnlCWVnyxS9KdTP8hvO1bkFoazwcHy3uNRxDXl9ANk
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/usuarios/8
+        name: patch
+        meta:
+          id: req_583c196afd6547839fe4c3e71a4e030a
+          created: 1756299508240
+          modified: 1758637481243
+          isPrivate: false
+          description: ""
+          sortKey: -1756299508240
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |
+            
+            	{
+            		"id": 8,
+            		"email": "lutecia@gmail.com"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVzdGUyMGFAZ21haWwuY29tIiwiaWF0IjoxNzU4NjM3Mzg4LCJleHAiOjE3NTg2MzkxODh9.-j41M6pvVmkFiZ_nyueRu3LwMAJjqW3GmG-qVALq7ug
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/login
+        name: post do token
+        meta:
+          id: req_3188c9692a184d5c972b3041ab7a7a13
+          created: 1756299509771
+          modified: 1758637387157
+          isPrivate: false
+          description: ""
+          sortKey: -1756299509771
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"email": "teste20a@gmail.com",
+            		"senha": "1234567890"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVzdGUyMGFAZ21haWwuY29tIiwiaWF0IjoxNzU4NjM3Mzc5LCJleHAiOjE3NTg2MzkxNzl9.0o0RcpXph2-JwL51GhrBzZypvURNEgapyVK6GOPHwn0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/usuarios
+        name: read com senha criptografada
+        meta:
+          id: req_92c3cf1981ed4b85903c1c7228cca25e
+          created: 1756299511226
+          modified: 1758637423353
+          isPrivate: false
+          description: ""
+          sortKey: -1756299511226
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.5.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVzdGUyMGFAZ21haWwuY29tIiwiaWF0IjoxNzU4NjM3Mzg4LCJleHAiOjE3NTg2MzkxODh9.-j41M6pvVmkFiZ_nyueRu3LwMAJjqW3GmG-qVALq7ug
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/logado
+        name: post logado
+        meta:
+          id: req_9217d30d730d44b2a10ea29444b6a61f
+          created: 1757418820890
+          modified: 1758635654106
+          isPrivate: false
+          description: ""
+          sortKey: -1757418820890
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            			"email": "teste20a@gmail.com",
+            		"senha": "1234567890"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.5.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVzdGUyMGFAZ21haWwuY29tIiwiaWF0IjoxNzU4NjM1NTczLCJleHAiOjE3NTg2MzczNzN9.hWnlCWVnyxS9KdTP8hvO1bkFoazwcHy3uNRxDXl9ANk
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_5f52314e1b9f8cd5f8e96fbb8490c82be22d1a4f
+    created: 1746555930699
+    modified: 1746555930699
+environments:
+  name: Base Environment
+  meta:
+    id: env_5f52314e1b9f8cd5f8e96fbb8490c82be22d1a4f
+    created: 1746555930691
+    modified: 1746555930691
+    isPrivate: false
