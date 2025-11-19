@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #e6f7ff;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  padding-bottom: 40px;
+}
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(27, 2, 168);
+  color: #f3faff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  letter-spacing: 0.4px;
+}
+
+header button {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  background-color: #0099cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+header button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+#consultasLista {
+  display: flex;
+  flex-wrap: wrap;         
+  justify-content: center;    
+  gap: 20px;                  
+  padding: 28px 20px;         
+  max-width: 1200px;
+  margin: 24px auto;   
+}       
+
+#consultasLista > * {
+  background-color: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 10px;
+  width: 260px;            
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(2, 20, 60, 0.06);
+  transition: transform .22s ease, box-shadow .22s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;         
+  overflow: hidden;
+}
+#consultasLista > * h3,
+#consultasLista > * .titulo-produto {
+  font-size: 1.05rem;
+  color: #030099;
+  margin-top: 4px;
+}
+#consultasLista > * p,
+#consultasLista > * .descricao {
+  font-size: 0.9rem;
+  color: #292828;
+  margin: 0;
+}
+
+#consultasLista.empty {
+  display: block;
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 720px) {
+  #consultasLista {
+    padding: 20px 12px;
+    gap: 14px;
+  }
+  #consultasLista > * {
+    width: calc(100% - 20px); 
+    max-width: 560px;
+  }
+}

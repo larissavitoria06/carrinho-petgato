@@ -1,0 +1,104 @@
+ :root{
+      --c1: #ffffff;
+      --c2: #eeedeb;
+      --c3: #cce2e2;
+      --c4: #b3b3b3;
+      --c5: rgb(180, 227, 241);
+      --c6: rgb(75, 197, 235);
+      --c7: rgba(46, 143, 223, 0.774);
+      --c8: #000000;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--c6);
+      margin: 0;
+      padding: 0;
+    }
+
+    .logo {
+      display: block;
+      margin: 20px auto 10px auto; 
+      height: 250px;
+    }
+
+    .login-container {
+      background: var(--c1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .password-display {
+      font-size: 24px;
+      letter-spacing: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      background: var(--c2);
+    }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .keypad button {
+      font-size: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: var(--c7);
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .keypad button:hover {
+      background: black;
+    }
+
+    .actions button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #clear {
+      background: #dc3545;
+      color: white;
+    }
+
+    #clear:hover {
+      background: #a71d2a;
+    }
+
+    #login {
+      background: var(--c5);
+      color: white;
+      margin-top: 10px;
+    }
+
+    #login:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+
+    #error {
+      margin-top: 15px;
+      color: red;
+      font-weight: bold;
+    }

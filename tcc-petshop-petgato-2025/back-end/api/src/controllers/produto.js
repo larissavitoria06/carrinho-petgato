@@ -4,12 +4,11 @@ const prisma = new PrismaClient();
 const create = async (req, res) => {
     try {
         const { nome, descricao, preco, imagem, categoria } = req.body;
-        
         // Verificar se a categoria enviada é válida
         const categoriasValidas = ['cachorro', 'gato', 'outros', 'farmacia'];
-        if (!categoriasValidas.includes(categoria)) {
-            return res.status(400).json({ error: 'Categoria inválida.' });
-        }
+        //if (!categoriasValidas.includes(categoria)) {
+          //  return res.status(400).json({ error: 'Categoria inválida.' });
+        //}
 
         const produto = await prisma.produto.create({
             data: {
@@ -17,13 +16,14 @@ const create = async (req, res) => {
                 descricao,
                 preco,
                 imagem,
-                categoria, // Passando apenas uma categoria (valor do enum)
+                categoria,
             },
         });
 
         res.status(201).json(produto);
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao criar produto' });
+    console.error(error);  
+    res.status(500).json({ mensage: 'Erro ao criar produto' });
     }
 };
 
@@ -47,8 +47,6 @@ async function buscarProdutos() {
         { id: 2, nome: 'Produto 2', especie: 'Espécie 2', raca: 'Raça 2', dados: 'Dados do produto 2', categoria: 'gato' },
     ];
 }
-
-// Função que vai ser chamada pela rota /produtos para retornar os produtos
 exports.listarProdutos = async (req, res) => {
     try {
         const produtos = await buscarProdutos(); // Aqui você chama a função de buscar os produtos

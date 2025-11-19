@@ -1,0 +1,230 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+nav a.ativo {
+  background-color: rgba(255,255,255,0.2);
+} 
+
+/* Banner */
+.banner {
+
+  color: #000;
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom: 4px solid rgb(75, 197, 235);
+}
+
+.banner h2 {
+  font-size: 2.4em;
+  margin-bottom: 15px;
+}
+
+.banner p {
+  font-size: 1.2em;
+}
+
+/* Animais */
+.animais {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.animais h2 {
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: rgb(75, 197, 235);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 250px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin: 12px 0 5px;
+  font-size: 1.3em;
+}
+
+.card p {
+  font-size: 1em;
+  color: #555;
+}
+
+/* Doações */
+.doacao-form {
+  background: #f1f8fc;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.doacao-form h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: rgb(75, 197, 235);
+}
+
+/* Card unificado */
+.descricao-card {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.descricao-conteudo {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.descricao-texto {
+  flex: 2;
+  min-width: 280px;
+}
+
+.descricao-texto h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: rgb(75, 197, 235);
+}
+
+.descricao-texto p {
+  font-size: 1em;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.descricao-texto ul {
+  margin: 15px 0 20px 20px;
+}
+
+.descricao-texto ul li {
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #444;
+}
+
+.descricao-texto ul li::before {
+  content: "🐾 ";
+}
+
+.descricao-texto .destaque {
+  font-weight: bold;
+  color: rgb(75, 197, 235);
+  font-size: 1.1em;
+  margin-top: 15px;
+}
+
+.descricao-pix {
+  flex: 1;
+  min-width: 240px;
+  background: rgb(180, 227, 241);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.descricao-pix h3 {
+  font-size: 1.4em;
+  margin-bottom: 12px;
+  color: rgb(75, 197, 235);
+}
+
+.descricao-pix p {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.qrcode-fixo {
+  width: 160px;
+  height: 160px;
+  margin: 10px auto;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.95em;
+  margin-top: 40px;
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .descricao-conteudo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .descricao-texto, .descricao-pix {
+    text-align: center;
+    width: 100%;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  
+}

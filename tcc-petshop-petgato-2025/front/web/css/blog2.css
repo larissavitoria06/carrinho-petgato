@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #3498db;
+  --secondary: #2ecc71;
+  --muted: #7f8c8d;
+  --background: #a3e7f8;
+  --text: #2c3e50;
+  --heading-color: #34495e;
+  --card: #ffffff;
+  --accent: #1abc9c;
+ --font-family: 'CircularXX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --c1: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  --c2: rgb(180, 227, 241);
+  --c3: rgb(75, 197, 235);
+  --c4: rgba(197, 218, 226, 0.623);
+  --c5: rgba(157, 201, 56, 0.795); /* COR DO TEXTO DOS BOTÕES */
+  --t1: rgb(53, 54, 56);
+  --t2: rgba(0, 0, 0, 0.7);
+
+
+}
+
+/* CORPO DA PÁGINA */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ESCONDE A ROLAGEM LATERAL */
+  display: flex;
+  flex-direction: column; /* ORGANIZA OS ELEMENTOS EM COLUNAS */
+  align-items: center; /* CENTRALIZA OS ELEMENTOS NA PÁGINA */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.6;
+  margin: 0;
+  background: var(--card);
+  color: var(--text);
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* CABEÇALHO UM */
+header {
+  background: var(--c1);
+  color: black;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* MANTÉM O CABEÇALHO ACIMA DOS OUTROS ITENS DO SITE */
+  justify-content: space-around; /* DISTRIBUI OS ITENS DO CABEÇALHO */
+  align-items: center; /* ALINHA OS ITENS DO CABEÇALHO */
+}
+
+header h1 {
+  font-family: 'Brush Script MT', cursive;
+  color: rgb(6, 43, 255);
+  font-size: 36.5px; /* TAMANHO DO TEXTO */
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 8%; /* POSIÇÃO DO TEXTO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DO TEXTO, VAI APARECER UMA MÃOZINHA */
+}
+
+header img {
+  width: 37px; /* TAMANHO DAS IMAGENS */
+  border: none;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+  color: black; /* COR DO TEXTO */
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DOS BOTÕES, VAI APARECER UMA MÃOZINHA */
+}
+
+header button:hover {
+  color: white; /* COR DO TEXTO AO PASSAR O MOUSE EM CIMA */
+  transition: 0.3s; /* TEMPO DA TRANSIÇÃO */
+  font-size: 1.8vh;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DO TÍTULO */
+@media (max-width: 768px) {
+  header h1 {
+    width: 60%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    width: 78%;
+    font-size: 30px;
+  }
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DAS IMAGENS */
+@media (max-width: 768px) {
+  header button img {
+    width: 25px; /* diminui o tamanho das imagens */
+  }
+}
+
+/* BARRA DE PESQUISA */
+.search-icon {
+  width: 60%;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA A BARRA SOME */
+@media (max-width: 768px) {
+  .search-icon {
+    display: none; /* some completamente */
+  }
+}
+
+/* CONTAINER DOIS */
+.Containerheader {
+  background-color: rgba(231, 231, 250, 0.445);
+  position: relative;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Containerheader button {
+  width: 130px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: var(--c5);
+  background: transparent;
+  cursor: pointer;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* ESPAÇO ENTRE TEXTO E IMG */
+}
+
+.Containerheader button img {
+  display: none; /* some em todas as telas inicialmente */
+}
+
+/* Quando passar o mouse (somente em dispositivos que suportam hover), exibe a imagem */
+@media (hover: hover) and (pointer: fine) {
+  .Containerheader button:hover img {
+    display: inline-block; /* mostra a imagem ao passar o mouse */
+  }
+}
+
+/* Em telas pequenas (responsivo, tipo celular), as imagens continuam ocultas */
+@media (max-width: 768px) {
+  .Containerheader button img {
+    display: none !important; /* garante que no mobile nunca aparece */
+  }
+}
+
+brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #7ad9ff, #c7f4ff);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 20px;
+}
+
+
+.move h4 {
+  font-size: 3.5rem; 
+  margin-bottom: 8px;
+}
+
+.hero {
+  padding: 22px;
+  text-align: center; /* Centraliza o texto */
+}
+
+.hero h1 {
+  font-size: 2.5rem; /* Tamanho maior para título */
+  margin-bottom: 8px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.lead {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+header1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+nav a {
+  margin-left: 14px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.hero h1 {
+  font-size: 3.6rem; 
+  margin-bottom: 8px;
+}
+
+.thumb {
+  width: 100%;
+  height: 240px;
+  border-radius: 10px;
+  background: url('../img/download.jpg') center/cover no-repeat;
+  margin-bottom: 14px;
+}
+
+img {
+  display: block;
+  max-width: 80%; /* Imagem vai ocupar no máximo 80% da largura */
+  height: auto;
+  margin: 0 auto 15px; /* Centraliza a imagem e dá margem abaixo */
+  border-radius: 9.8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.comments {
+  margin-top: 30px;
+  padding: 16px;
+  background: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.comments h2 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: var(--accent);
+}
+
+.comment-list {
+  margin-bottom: 20px;
+}
+
+.comment {
+  background: #f9f9f9;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.comment strong {
+  color: var(--accent);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--muted);
+  font-size: 14px;
+  width: 100%;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.btn{
+padding:8px 12px;
+border-radius:8px;
+border:none;
+background:#80e4fd;
+color:#ffffff;
+font-weight:700;
+cursor:pointer;
+transition:background 0.2s ease;
+}
+.btn:hover{background:#1bcdfa}
+
+/* Footer */
+footer1 {
+  margin: 36px 0 80px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  justify-content: center;
+  display: flex;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

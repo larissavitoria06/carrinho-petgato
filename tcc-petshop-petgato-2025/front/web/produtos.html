@@ -4,204 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Pet Gato</title>
-    <style>
-        /* Estilo para os botões */
-        .Containerheader button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        /* Estilo dos Cards */
-        .produtos-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .produto-card {
-            width: 250px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .produto-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .produto-card h3 {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .produto-card p {
-            font-size: 14px;
-            margin: 10px 0;
-        }
-
-        .produto-card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 50%;
-            max-width: 400px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: black;
-        }
-
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #b3e5ff; /* tom de azul bebê médio */
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #005b99;
-    }
-
-    header button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #0099cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    header button:hover {
-      background-color: #0077aa;
-    }
-
-    .filter-container {
-      margin: 20px 0;
-    }
-
-    .filter-container select {
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #0099cc;
-      border-radius: 5px;
-    }
-
-    .produtos-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 0 20px 40px;
-    }
-
-    .produto-card {
-      width: 250px;
-      background-color: white;
-      border: 1px solid #99ccff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-
-    .produto-card:hover {
-      transform: scale(1.03);
-    }
-
-    .produto-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .produto-card .info {
-      padding: 15px;
-    }
-
-    .produto-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.2em;
-      color: #005b99;
-    }
-
-    .produto-card p {
-      margin: 5px 0;
-      font-size: 0.9em;
-      color: #555;
-    }
-
-    .produto-card .preco {
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #0077aa;
-    }
-    .modal {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-}
-
-.close {
-  float: right;
-  font-size: 28px;
-  cursor: pointer;
-}
-
-  </style>
+    <link rel="stylesheet" href="./css/produtos.css">
 </head>
 <body>
 
@@ -213,7 +16,7 @@
 </header>
 
 <div class="Containerheader">
-    <button onclick="window.location.href='consulta.html'">
+    <button onclick="window.location.href='consultaadmin.html'">
         Consulta
     </button>
     <button id="novoProdutoBtn">
@@ -221,11 +24,8 @@
     </button>
 </div>
 
-
-<!-- Produtos -->
 <div id="produtosLista" class="produtos-container"></div>
 
-<!-- Modal de edição -->
 <div id="modal-editar" class="modal">
   <div class="modal-content">
     <span class="close" onclick="fecharModalEditar()">&times;</span>
@@ -250,7 +50,6 @@
   </div>
 </div>
 
-<!-- Modal para cadastrar novo produto -->
 <div id="novoProdutoModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -272,131 +71,15 @@
       <select id="categoria" name="categoria" required>
         <option value="cachorro">Cachorro</option>
         <option value="gato">Gato</option>
-        <option value="outros">Outros</option>
-        <option value="farmacia">Farmácia</option>
+        <option value="peixe">Peixe</option>
+        <option value="passaro">Pássaro</option>
       </select><br><br>
 
       <button type="submit">Cadastrar Produto</button>
     </form>
   </div>
 </div>
-
-<script>
-  const urlLocal = 'http://localhost:3000/produto';
-  const urlVercel = 'https://back-end-tcc-gamma.vercel.app/produto';
-
-  // Carregar produtos
-  let produtos = [];
-
-  function buscarProdutos() {
-    fetch(urlLocal)
-      .then(response => response.json())
-      .then(data => {
-        produtos = data; // salvar para uso em edição
-        exibirProdutos();
-      })
-      .catch(error => {
-        console.error('Erro ao carregar os produtos:', error);
-        document.getElementById('produtosLista').innerHTML = '<p>Erro ao carregar produtos.</p>';
-      });
-  }
-
-  function exibirProdutos() {
-    const container = document.getElementById('produtosLista');
-    container.innerHTML = '';
-
-    produtos.forEach(produto => {
-      const card = document.createElement('div');
-      card.className = 'produto-card';
-
-      card.innerHTML = `
-        <img src="${produto.imagem}" alt="${produto.nome}">
-        <div class="info">
-          <h3>${produto.nome}</h3>
-          <p>${produto.descricao}</p>
-          <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
-          <div class="acoes">
-            <button onclick="excluirProduto(${produto.id})">Excluir</button>
-          </div>
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-  }
-
-  // Exemplo de função para excluir (você pode ativar se quiser)
-  function excluirProduto(id) {
-    if (!confirm("Tem certeza que deseja excluir este produto?")) return;
-
-    Promise.all([
-      fetch(`${urlLocal}/${id}`, { method: "DELETE" }),
-      fetch(`${urlVercel}/${id}`, { method: "DELETE" })
-    ])
-      .then(([res1, res2]) => {
-        if (!res1.ok && !res2.ok) throw new Error("Erro ao excluir");
-        alert("Produto excluído com sucesso!");
-        buscarProdutos();
-      })
-      .catch(error => {
-        console.error(error);
-        alert("Erro ao excluir produto.");
-      });
-  }
-
-  // Modal "Cadastrar Novo Produto"
-  document.getElementById("novoProdutoBtn").onclick = function () {
-    document.getElementById("novoProdutoModal").style.display = "block";
-  };
-
-  function closeModal() {
-    document.getElementById("novoProdutoModal").style.display = "none";
-  }
-
-  document.getElementById("produtoForm").onsubmit = function (event) {
-    event.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const descricao = document.getElementById("descricao").value;
-    const preco = parseFloat(document.getElementById("preco").value);
-    const imagem = document.getElementById("imagem").value;
-    const categoria = document.getElementById("categoria").value;
-
-    const produtoData = {
-      nome,
-      descricao,
-      preco,
-      imagem,
-      categoria
-    };
-
-    Promise.all([
-      fetch(urlLocal, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(produtoData),
-      }),
-      fetch(urlVercel, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(produtoData),
-      })
-    ])
-      .then(responses => Promise.all(responses.map(r => r.json())))
-      .then(() => {
-        alert("Produto cadastrado com sucesso!");
-        closeModal();
-        buscarProdutos();
-      })
-      .catch(error => {
-        console.error("Erro ao cadastrar:", error);
-        alert("Erro ao cadastrar produto.");
-      });
-  };
-
-  // Inicializa carregando os produtos
-  window.onload = buscarProdutos;
-
-</script>
+<script src="./js/api.js"></script>
+<script src="./js/produtos.js"></script>
 </body>
 </html>

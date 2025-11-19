@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento</title>
+
+  <!-- CSS DAS DUAS PÁGINAS -->
+  <link rel="stylesheet" href="./css/styleC.css">
+  <link rel="stylesheet" href="./css/styleD.css">
+
+  <style>
+    /* Esconde os formulários até selecionarem o tipo */
+    .hidden { display: none; }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <h1>💳 Pagamento</h1>
+  <br>
+  <p>🚚 Devolução gratuita</p>
+  <br>
+  <button onclick="window.location.href='index.html'">Voltar</button>
+</header>
+
+</header>
+
+<br>
+
+<!-- Selecionar Tipo de Pagamento -->
+<div style="max-width:400px; width:90%; margin:auto;">
+  <label style="font-size:20px; font-weight:600;">Escolha a Forma de Pagamento</label>
+  <select id="tipoPagamento" onchange="mostrarFormulario()" style="padding:15px; font-size:18px; width:100%; border-radius:10px;">
+      <option value="">Selecione...</option>
+      <option value="debito">💳 Cartão de Débito</option>
+      <option value="credito">💳 Cartão de Crédito</option>
+  </select>
+</div>
+
+<br><br>
+
+<!-- Bandeiras -->
+<div class="bandeiras">
+  <img src="./pagamentos/cartoes banner.jpg" alt="Mastercard">
+  <img src="./images/Elo.webp" alt="Elo">
+  <img src="./images/American_Express.svg" alt="Amex">
+</div>
+
+<br><br>
+
+<!-- Total -->
+<div class="total">
+  <h3>Total: <span id="total-compra">R$0,00</span></h3>
+</div>
+
+<!-- TOTAL FINAL (somente crédito) -->
+<div class="Valor-Final hidden" id="areaJuros">
+  <h3>Com Juros: <span id="totalValor">R$0,00</span></h3>
+</div>
+
+<!-- FORMULÁRIO DÉBITO -->
+<form id="formDebito" class="form-pagamento hidden" onsubmit="PagamentoDebito(event)">
+
+  <br> 
+  <br>
+  <h2>Pagamento Débito</h2>
+
+  <label>Número do Cartão</label>
+  <input type="text" placeholder="💳 0000 0000 0000 0000" maxlength="16" required>
+
+  <div class="linha">
+    <div>
+      <label>Validade</label>
+      <input type="month" required>
+    </div>
+    <div>
+      <label>CVV</label>
+      <input type="text" maxlength="4" required>
+    </div>
+  </div>
+
+  <button type="submit">Concluir Pagamento</button>
+   <button type="button" onclick="enviarWhatsapp()">Enviar pedido no WhatsApp</button>
+</form>
+
+<!-- FORMULÁRIO CRÉDITO -->
+<form id="formCredito" class="form-pagamento hidden" onsubmit="PagamentoCredito(event)">
+
+  <h2>Pagamento Crédito</h2>
+<br>
+<br>
+  <label>Número do Cartão</label>
+  <input type="text" placeholder="💳 0000 0000 0000 0000" maxlength="16" required>
+
+  <div class="linha">
+    <div>
+      <label>Validade</label>
+      <input type="month" required>
+    </div>
+    <div>
+      <label>CVV</label>
+      <input type="text" maxlength="4" required>
+    </div>
+  </div>
+
+  <div class="formulario-container">
+    <h4>Parcelamento</h4>
+    <select id="parcelas" required>
+        <option value="">Selecione...</option>
+        <option value="1">1x sem juros</option>
+        <option value="2">2x sem juros</option>
+        <option value="3">3x sem juros</option>
+        <option value="4">4x sem juros</option>
+        <option value="5">5x sem juros</option>
+        <option value="6">6x sem juros</option>
+        <option value="7">7x com juros</option>
+        <option value="8">8x com juros</option>
+        <option value="9">9x com juros</option>
+        <option value="10">10x com juros</option>
+        <option value="12">12x com juros</option>
+    </select>
+  </div>
+<br>
+  <button type="button" onclick="enviarWhatsapp()">Enviar pedido no WhatsApp</button>
+  <button type="submit">Concluir Pagamento</button>
+  
+</form>
+
+<!-- JS DAS DUAS PÁGINAS -->
+<script src="./js/js10.js"></script>
+<script src="./JS/js14.js"></script>
+
+<script>
+/* MOSTRAR FORMULÁRIOS*/
+function mostrarFormulario() {
+    const tipo = document.getElementById("tipoPagamento").value;
+
+    document.getElementById("formDebito").classList.add("hidden");
+    document.getElementById("formCredito").classList.add("hidden");
+    document.getElementById("areaJuros").classList.add("hidden");
+
+    if (tipo === "debito") {
+        document.getElementById("formDebito").classList.remove("hidden");
+    }
+
+    if (tipo === "credito") {
+        document.getElementById("formCredito").classList.remove("hidden");
+        document.getElementById("areaJuros").classList.remove("hidden");
+    }
+}
+
+/* PAGAMENTO DÉBITO*/
+async function PagamentoDebito(event) {
+  event.preventDefault();
+
+  alert("Processando pagamento Débito...");
+  await new Promise(r => setTimeout(r, 1000));
+
+  const total = parseFloat(localStorage.getItem("carrinho_total") || "0.00");
+
+  window.location.href = `/front/web/procesando.html?valor=${total.toFixed(2)}`;
+}
+
+/*  PAGAMENTO CRÉDITO*/
+async function PagamentoCredito(event) {
+  event.preventDefault();
+
+  alert("Processando pagamento Crédito...");
+  await new Promise(r => setTimeout(r, 1000));
+
+  const total = parseFloat(localStorage.getItem("totalFinal") || localStorage.getItem("carrinho_total") || "0.00");
+
+  window.location.href = `/front/web/procesando.html?valor=${total.toFixed(2)}`;
+}
+
+// ======== BOTÃO WHATSAPP =========
+function enviarWhatsapp() {
+  let numero = "5519988943311";
+
+  let totalSemJuros = localStorage.getItem("carrinho_total") || "0.00";
+  let totalComJuros = localStorage.getItem("totalFinal") || totalSemJuros;
+  let parcelas = document.getElementById("parcelas").value || "1";
+
+  let mensagem = `📦 *NOVO PEDIDO*
+
+🧾 Total sem juros: R$ ${parseFloat(totalSemJuros).toFixed(2)}
+💰 Total com juros: R$ ${parseFloat(totalComJuros).toFixed(2)}
+📌 Parcelamento: ${parcelas}x
+💳 Forma de pagamento: Cartão de Crédito
+📅 Data: ${new Date().toLocaleString()}
+
+Por favor, preparar o pedido.`;
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+  window.open(url, "_blank");
+}
+
+</script>
+
+</body>
+</html>

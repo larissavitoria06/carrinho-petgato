@@ -22,12 +22,6 @@
     <h3>Total: <span>R$0,00</span></h3>
   </div>
 
-  <!-- CRONÔMETRO -->
-  <div class="cronometro-container">
-    <h3>Tempo decorrido:</h3>
-    <div id="cronometro">00:00</div>
-  </div>
-
   <main>
     <!-- PIX -->
     <section class="descricao-pix">
@@ -35,7 +29,10 @@
       <p><strong>Chave PIX:</strong><br> larissavitoria.ssntos12@gmail.com</p>
       <img src="/front/web/pagamentos/i2.jpg" alt="QR Code PIX" class="qrcode-fixo">
       <p>Escaneie o QR Code com seu aplicativo bancário para realizar o pagamento.</p>
+      <br>
+      <button type="submit">Concluir Pagamento</button>
     </section>
+     
   </main>
 
   <footer>
@@ -49,6 +46,29 @@
 
  <script src="./JS/15js"></script>
 
+ <script>
+  // ======== BOTÃO WHATSAPP =========
+function enviarWhatsapp() {
+  let numero = "5519988943311";
+
+  let totalSemJuros = localStorage.getItem("carrinho_total") || "0.00";
+  let totalComJuros = localStorage.getItem("totalFinal") || totalSemJuros;
+  let parcelas = document.getElementById("parcelas").value || "1";
+
+  let mensagem = `📦 *NOVO PEDIDO*
+
+🧾 Total sem juros: R$ ${parseFloat(totalSemJuros).toFixed(2)}
+💰 Total com juros: R$ ${parseFloat(totalComJuros).toFixed(2)}
+📌 Parcelamento: ${parcelas}x
+💳 Forma de pagamento: Cartão de Crédito
+📅 Data: ${new Date().toLocaleString()}
+
+Por favor, preparar o pedido.`;
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+  window.open(url, "_blank");
+}
+ </script>
 
 </body>
 </html>

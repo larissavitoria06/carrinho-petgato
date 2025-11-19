@@ -1,0 +1,123 @@
+*{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+
+}
+.container1{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+color: white;
+height: 100px; 
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.product-item {
+color: white;
+border-radius: 5px;
+padding: 10px;
+text-align: center;
+width: 200px;
+border: 2px solid rgb(255, 255, 255); 
+}
+.product-item img {
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0); 
+}
+.back-button { 
+  margin-top: 20px; 
+  text-align: center; 
+  margin-top: auto;
+} 
+.back-button button { 
+  background-color: #008cff; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 4px; cursor: pointer; 
+  font-size: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+ } 
+ .back-button button:hover { 
+   background-color: #ffffffe1;
+            color: black;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            border-radius: 5px;
+            align-items: center;
+            justify-content: center;
+            border: none; 
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.4s, transform 0.4s;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+
+}
+
+.product-item button {
+    margin-top: 10px;
+  background-color: #00a2ff; 
+  color: white; 
+  border: none; 
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.product-item button:hover {
+  background-color: #0066ff;
+  transform: scale(1.05);
+}
+  body {
+            background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+
+        }
+        .card {
+            background-color: #ffffffe1;
+            color: black;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            border-radius: 8px;
+            margin: 20px auto;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            width: 300px;
+            height: 50px;
+            cursor: pointer;
+           }
+
+        .container1{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          margin-bottom: 40px;
+          margin-top: 20px;
+
+        }
+        .card:hover {
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+        }

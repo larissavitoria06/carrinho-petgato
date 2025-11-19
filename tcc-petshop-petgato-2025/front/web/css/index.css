@@ -1,0 +1,1591 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORES DO SITE */
+:root {
+  --font-family: 'CircularXX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --c1: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  --c2: rgb(180, 227, 241);
+  --c3: rgb(75, 197, 235);
+  --c4: rgba(197, 218, 226, 0.623);
+  --c5: rgba(157, 201, 56, 0.795); /* COR DO TEXTO DOS BOTÕES */
+  --c6: rgb(27, 2, 168); /* COR DAS BOLINHAS DO CAROUSEL */
+  --c7: linear-gradient(to right, rgb(22, 8, 214), rgb(1, 1, 116));
+  --t1: rgb(53, 54, 56);
+  --t2: rgba(0, 0, 0, 0.7);
+}
+
+/* CORPO DA PÁGINA */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ESCONDE A ROLAGEM LATERAL */
+  display: flex;
+  flex-direction: column; /* ORGANIZA OS ELEMENTOS EM COLUNAS */
+  align-items: center; /* CENTRALIZA OS ELEMENTOS NA PÁGINA */
+}
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+}
+
+/* CABEÇALHO UM */
+header {
+  background: var(--c6);
+  color: black;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* MANTÉM O CABEÇALHO ACIMA DOS OUTROS ITENS DO SITE */
+  justify-content: space-around; /* DISTRIBUI OS ITENS DO CABEÇALHO */
+  align-items: center; /* ALINHA OS ITENS DO CABEÇALHO */
+}
+
+header h1 {
+  font-family: 'Brush Script MT', cursive;
+  color: var(--c3);
+  font-size: 36.5px; /* TAMANHO DO TEXTO */
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 8%; /* POSIÇÃO DO TEXTO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DO TEXTO, VAI APARECER UMA MÃOZINHA */
+}
+
+header img {
+  width: 37px; /* TAMANHO DAS IMAGENS */
+  border: none;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+  color: black; /* COR DO TEXTO */
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DOS BOTÕES, VAI APARECER UMA MÃOZINHA */
+}
+
+header button:hover {
+  color: white; /* COR DO TEXTO AO PASSAR O MOUSE EM CIMA */
+  transition: 0.3s; /* TEMPO DA TRANSIÇÃO */
+  font-size: 1.8vh;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DO TÍTULO */
+@media (max-width: 200%) {
+  header h1 {
+    width: 50%;
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    width: 121%;
+    font-size: 30px;
+    position: fixed;
+    top: 0;left: -10%;
+  }
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DAS IMAGENS */
+@media (max-width: 768px) {
+  header button img {
+    width: 25px; /* diminui o tamanho das imagens */
+  }
+}
+
+/* BARRA DE PESQUISA */
+.search-icon {
+  width: 60%;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA A BARRA SOME */
+@media (max-width: 768px) {
+  .search-icon {
+    display: none; /* some completamente */
+  }
+}
+
+/* CONTAINER DOIS */
+.Containerheader {
+  background-color: rgba(231, 231, 250, 0.445);
+  position: relative;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Containerheader button {
+  width: 130px;
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: var(--c5);
+  background: transparent;
+  cursor: pointer;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* ESPAÇO ENTRE TEXTO E IMG */
+}
+
+.Containerheader button img {
+  display: none; /* some em todas as telas inicialmente */
+}
+
+/* Quando passar o mouse (somente em dispositivos que suportam hover), exibe a imagem */
+@media (hover: hover) and (pointer: fine) {
+  .Containerheader button:hover img {
+    display: inline-block; /* mostra a imagem ao passar o mouse */
+  }
+}
+
+/* Em telas pequenas (responsivo, tipo celular), as imagens continuam ocultas */
+@media (max-width: 768px) {
+  .Containerheader button img {
+    display: none !important; /* garante que no mobile nunca aparece */
+  }
+}
+
+/* Anúncios buttons */
+.anuncios {
+  width: 70%;
+  height: 12.6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.anuncios button {
+  background: transparent;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: space-between;
+  gap: 11px; /* ESPAÇO ENTRE TEXTO E IMG */
+  padding: 3%;
+  font-size: 60%;
+  position: relative;
+  top: 5px;
+  left: -3%;
+  width: 28%;
+  border-radius: 5px;
+  height: 100%;
+  border-color: rgba(236, 231, 231, 0.205);
+}
+
+.anuncios button img {
+  width: 12%;
+  position: relative;
+  top: 0;
+  left: -6%;
+}
+
+@media (max-width: 768px) {
+  .anuncios {
+    display: none; /* some completamente */
+  }
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  width: 60%;
+  top: 0px;
+  left: 0;
+  padding: 15px;
+  border-radius: 75px 75px 85px 75px;
+  text-align: center;
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  overflow: hidden;
+  margin: 4vh;
+}
+
+.banner-text {
+  display: none; /* ESCONDE O TEXTO */
+  color: black;
+  transition: color 0.5s ease; /* FAZ A TRANSIÇÃO DO TEXTO */
+}
+
+.banner-text.active {
+  display: block; /* MOSTRA O TEXTO */
+}
+
+/* CAROUSEL DE IMAGENS */
+.carousel {
+  position: relative;
+  top: 10px;
+  left: 0;
+  width: 80%;
+  height: 400px; /* ALTURA DO CAROUSEL AJUSTADA */
+  overflow: hidden; /* ESCONDE PARTES EXTERNAS DAS IMAGENS */
+  display: flex; /* PERMITE CENTRALIZAR AS IMAGENS */
+  justify-content: center; /* CENTRA HORIZONTALMENTE */
+  align-items: center; /* CENTRA VERTICALMENTE */
+}
+
+.carousel img {
+  width: 80%; /* LARGURA PADRÃO DAS IMAGENS */
+  height: auto;
+  opacity: 0; /* INICIALMENTE OCULTA */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* CENTRALIZA NO MEIO DO CAROUSEL */
+  transition: all 0.6s ease-in-out; /* ANIMAÇÃO SUAVE */
+  border-radius: 15px;
+  pointer-events: none; /* NÃO CLICÁVEL */
+}
+
+.carousel img.active {
+  opacity: 1; /* IMAGEM VISÍVEL */
+  transform: translate(-50%, -50%) scale(1); /* CENTRALIZA E AUMENTA LEVEMENTE */
+  filter: blur(0); /* SEM DESFOQUE */
+  pointer-events: auto; /* PERMITE CLICAR */
+}
+
+.carousel img.left {
+  opacity: 0.7; 
+  transform: translate(-150%, -50%) scale(0.85); /* POSICIONA À ESQUERDA E REDUZ LEVEMENTE */
+  filter: blur(3px); /* DESFOQUE LEVE */
+}
+
+.carousel img.right {
+  opacity: 0.7; 
+  transform: translate(50%, -50%) scale(0.85); /* POSICIONA À DIREITA E REDUZ LEVEMENTE */
+  filter: blur(3px); /* DESFOQUE LEVE */
+}
+
+.carousel img.hidden {
+  opacity: 0; 
+  transform: scale(0.5); /* REDUZ LEVEMENTE */
+  pointer-events: none; /* NÃO CLICÁVEL */
+}
+
+.carousel-indicators {
+  display: flex; /* Alinha as bolinhas horizontalmente */
+  gap: 10px; /* Espaçamento entre bolinhas */
+  margin-top: 20px; /* Distância do carousel */
+}
+
+.dot {
+  width: 12px; /* Largura da bolinha */
+  height: 12px; /* Altura da bolinha */
+  border-radius: 50%; /* Forma circular */
+  background: rgba(65, 63, 47, 0.5); /* Cor cinza clara */
+  cursor: pointer; /* Cursor de clique */
+  transition: background 0.3s; /* Transição suave ao mudar cor */
+}
+
+.dot.active-dot {
+  background: rgb(18, 14, 231); /* Bolinha ativa */
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .carousel {
+    width: 90%; /* AJUSTA LARGURA NO MOBILE */
+    height: 250px; /* ALTURA MENOR */
+  }
+
+  .carousel img {
+    width: 90%; /* IMAGEM OCUPA MAIS ESPAÇO */
+  }
+
+  .prev,
+  .next {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeInDown {
+  from {
+    opacity: 0; /* INICIA COM OPACIDADE 0 */
+    transform: translateY(-20px); /* INICIA 20PX ACIMA */
+  }
+  to {
+    opacity: 1; /* FINALIZA COM OPACIDADE 1 */
+    transform: translateY(0); /* FINALIZA NA POSIÇÃO ORIGINAL */
+  }
+}
+
+/* ANIMAL BUTTONS */
+.animal {
+  border: none;
+  width: 100%;
+  height: 40%;
+  position: relative;
+  top: 0;left: -7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.animal button {
+  border: none;
+  background-color:rgb(75, 197, 235);
+  width: 40%;
+  height: 90px;
+  padding: 0.7%;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  border-radius: 5%;
+  gap: 70px; /* ESPAÇO ENTRE TEXTO E IMG */
+
+  img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;left: -10%;
+  border-radius: 80%;
+}
+}
+
+
+/* 🔹 QUANDO A TELA FOR PEQUENA A BARRA SOME */
+@media (max-width: 768px) {
+  .animal img {
+    display: none; /* some completamente */
+  }
+
+  .animal button {
+    width: 100%;
+    padding: 5px;
+    border-radius: 25%;
+  }
+
+  .animal {
+    position: relative;
+    top: 0;
+    left: -1%;
+    width: 80%;
+    gap: 2%;
+    padding: 10px;
+  }
+}
+
+.outros, .pet {
+  width: 30%;
+  height: 10%;
+  position: relative;
+  top: 0;left: -5%;
+  font-size: 100%;
+  color: black;
+  font-weight: bold;
+}/* --- wrapper do fundo ondulado --- */
+.section-fundo {
+  position: relative;
+  
+  width: 100%;
+  min-height: 0;          /* controla "a altura" do bloco — ajuste se precisar */
+  margin: 40px 0;             /* espaçamento externo (opcional) */
+  overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .section-fundo {
+    width: 40%;
+    position: relative;
+    top: 0;left: 0;
+    
+  }}
+
+/* SVG do fundo (faz as ondulações nas extremidades) */
+.fundo-svg {
+  position: absolute;
+  left: 0;
+  
+  top: -16%;
+  width: 200%;
+  height: 150%;                /* atrás do conteúdo */
+  pointer-events: none;       /* deixa os botões clicáveis */
+  display: block;
+}
+
+/* conteúdo que fica sobre o SVG */
+.fundoparcial-content {
+  
+  position: relative;             /* acima do SVG */
+  padding: 30px 20px;         /* controla o "padding" interno (altura visível) */
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: #fff;                /* textos brancos por padrão — ajuste se quiser */
+}
+
+/* ----- seus estilos de botões (adaptados) ----- */
+.animal {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;            /* quebra em linhas quando precisar */
+  margin: 14px 0;
+}
+
+.animal button {
+  border: none;
+  background-color: rgb(75, 197, 235);
+  min-width: 160px;           /* fica mais amigável em telas pequenas */
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #003;                /* cor do texto do botão (ajuste se quiser) */
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .fundo-svg, .fundoparcial-content, .animal, .pet, .section-fundo  {
+    display: none; /* some completamente */
+  }}
+
+/* img dentro do botão */
+.animal button img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* títulos dentro (pet/outros) */
+.pet h1, .outros h1 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+  .fundoparcial-content { padding: 20px 12px; }
+  .animal button { min-width: 48%; height: 56px; border-radius: 12px; }
+  .animal button img { display: inline-block; width: 28px; height: 28px; }
+}
+
+/* JUROS */
+.juros {
+  width: 80%;
+  height: 12.6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 5%;
+  left: 2%;
+  gap: 2%;
+}
+
+.juros button {
+  width: 80%;
+  background: transparent;
+  justify-content: space-around;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  display: flex; /* PARA ALINHAR A IMG E O TEXTO */
+  align-items: center;
+  justify-content: space-between;
+  gap: 11px; /* ESPAÇO ENTRE TEXTO E IMG */
+  padding: 3%;
+  font-size: 60%;
+  position: relative;
+  top: 3%;
+  left: -3%;
+  width: 28%;
+  border-radius: 5px;
+  height: 100%;
+  border-color: rgba(236, 231, 231, 0.205);
+  gap: 10%;
+}
+
+.juros button img {
+  background: transparent;
+  width: 15%;
+  height: 190%;
+  position: relative;
+  top: 0;
+  left: -6%;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA A BARRA SOME */
+@media (max-width: 768px) {
+  .juros {
+    display: none; 
+  }
+}
+
+/* PRODUTOS CARDS */
+.mainContainer {
+  width: 98%;
+  height: 150%;
+  position: relative;
+  top: 0;
+  left: -1%;
+  color: rgb(80, 80, 85);
+}
+/* Wrapper geral */
+.produtos-wrapper {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Container dos cards */
+#produtos-container {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+}
+
+/* Cada card */
+#produtos-container .card {
+  flex: 0 0 250px;   /* largura fixa */
+  height: 400px;     /* altura fixa */
+  background: #f0f0f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ----- BOTÕES DE NAVEGAÇÃO (Anterior / Próximo) ----- */
+.produtos-navigation {
+  position: absolute;          /* coloca por cima do container */
+  top: 50%;                    /* centraliza na altura */
+  left: 0;                     /* começa na lateral esquerda */
+  width: 100%;   
+  height: 100%;              /* ocupa toda a largura */
+  display: flex;               /* coloca os botões em linha */
+  justify-content: space-between;
+  gap: 115%;
+  transform: translateY(-10%); /* ajusta para ficar no centro exato */
+  pointer-events: none; 
+         /* evita bloquear cliques em outros elementos */
+}
+@media (max-width: 768px) {
+  .produtos-navigation {
+    gap: 10%;
+  }
+}
+
+.produtos-navigation button {
+  pointer-events: auto;        /* deixa os botões clicáveis */
+  background: rgb(75, 197, 235); /* fundo preto semitransparente */
+  color: #fff;                 /* texto branco */
+  border: none;                /* remove borda padrão */
+  border-radius: 50%;          /* formato de círculo */
+  width: 75px;                /* tamanho fixo do botão */
+  height: 7%;
+  cursor: pointer;             /* cursor em forma de mãozinha */
+  font-size: 18px; 
+  justify-content: space-around;            /* tamanho do símbolo ou texto */
+}
+.card {
+  height: 100%;
+  border: 3px solid rgb(0, 38, 252);
+  position: relative;
+  background-color: rgba(205, 235, 252, 0.418);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px; /* MARGIN EXTERNA */
+  border-radius: 2%;
+  justify-content: space-around;
+  border-color: rgba(240, 234, 186, 0.877);
+}
+
+.card img {
+  width: 70%;
+  position: relative;
+  top: 3%;
+  left: 0;
+  border-radius: 5%;
+  margin-bottom: 5%;
+}
+
+.button-group {
+  position: relative;
+  
+  top: 10%;
+  left: 0;
+  display: flex; /* Alinha os botões em linha */
+  gap: 10px; /* Espaçamento entre os botões */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  margin-top: 10px; /* Espaço acima do grupo de botões */
+}
+
+.button-group button {
+  position: relative;
+  top: -50%;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(215, 220, 250, 0.247);
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(128, 124, 124);
+  display: flex; /* Para alinhar o conteúdo interno (ex: img) */
+  align-items: center; /* Centraliza verticalmente o conteúdo do botão */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 5px; /* Espaço entre texto e imagem dentro do botão */
+  min-width: 80px; /* Largura mínima para os botões */
+}
+
+.button-group button img {
+  width: 20px; /* Tamanho das imagens dentro dos botões */
+  height: 20px;
+}
+
+/* Garante que fundo parcial e cards banho & tosa fiquem atrás do modal */
+.fundoparcial-content, .tosavet {
+  position: relative;
+  z-index: 1;
+}
+
+.cb{
+  width: 100%;
+  position: relative;
+  top: 0;left: 204px;
+}
+
+@media (max-width: 768px) {
+  .cb {
+    display: none; /* some completamente */
+
+  }}
+  .tosavet{
+    width: 74%;
+    height: 150%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 0;left: -4.3%;
+    gap: 3%;
+
+    .vet button{
+      width: 70%;
+      height: 350px;
+      border: none;
+      background-color: rgba(11, 167, 206, 0);
+      display: flex;
+      justify-content: space-around;
+      border-radius: 25px;
+
+       & img{
+        width: 70%;
+        border-radius: 70% 0 0 0 ; 
+        position: relative;
+        top: 0;left: 10%; 
+      }
+      & h2{
+        font-size: 15px;
+        color: rgb(233, 224, 142);
+        position: relative;
+        top: 25%;left: -7%;
+      }
+
+    }
+}
+
+@media (max-width: 768px) {
+  .tosavet {
+    display: none; /* some completamente */
+
+  }
+.h2 {
+    width: 0;
+    font-size: 1px;
+  }}
+    .banho, .vet {
+      width: 70%;
+      height: 350px;
+      background-color: var(--c6);
+      display: flex;
+      justify-content: space-around;
+      border-radius: 25px;
+      
+      
+
+       & img{
+        width: 50%;
+        border-radius: 70% 0 0 0 ; 
+        position: relative;
+        top: 0;left: 10%; 
+      }
+      & h2{
+        font-size: 15px;
+        color: rgb(233, 224, 142);
+        position: relative;
+        top: 25%;left: 5%;
+      }
+    }
+    /* ========== ESTILOS PARA A SEÇÃO DUPLICADA ========== */
+/* Ajustes mínimos — ficam isolados (sufixados com -dup) para não conflitar */
+.mainContainer-dup {
+  width: 100%;
+  padding: 30px 10%;
+  box-sizing: border-box;
+  color: rgb(80,80,85);
+}
+
+/* grid dos cards */
+.produtos-grid-dup {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+/* cartão produto */
+.card-dup {
+  background: rgba(205,235,252,0.42);
+  border-radius: 8px;
+  padding: 12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  min-height: 220px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.card-dup img { width: 85%; height: 120px; object-fit: cover; border-radius:6px; }
+.card-dup h4 { margin:8px 0 4px; font-size:16px; text-align:center; }
+.card-dup p { font-size:14px; margin:2px 0; text-align:center; }
+
+.button-group-dup {
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+.button-group-dup button {
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+}
+
+/* classe pra esconder (usada no seu código original também) */
+.oculto { display: none !important; }
+
+/* responsivo simples */
+@media (max-width:900px) {
+  .produtos-grid-dup { grid-template-columns: repeat(2, 1fr); }
+  .conteudo-produto-dup { flex-direction:column; align-items:flex-start; }
+}
+@media (max-width:480px) {
+  .produtos-grid-dup { grid-template-columns: 1fr; }
+}
+
+.blog {
+  width: 80%;
+  position: relative;
+  top: 0;
+  left: -50px;
+  color: rgb(76, 76, 80);
+  display: flex;
+  gap: 2%;
+  
+
+}
+.petum {
+  width: 100%;
+  height: 356px;
+  position: relative;
+  top: 0;left: 1%;
+  justify-content: space-around;
+  border-radius: 20px;
+  border: var(--c2) 3px solid;
+  box-shadow: 0 0 40px 30px var(--c2);
+  padding: 20px;
+  overflow: hidden;
+
+  h2, p {
+    width: 50%;
+    text-align: justify;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    top: -345px;left: 50%;
+  }
+.imn{
+  
+  img {
+    width: 20vw;
+    height: 37.1vh;
+    position: relative;
+    top: -20px;left: -40.4%;
+    border-radius: 15px 0 0 15px;
+  }
+}
+  h3 {
+    font-size: 10px;
+    position: relative;
+    top: -330px;left: 50%;
+  
+  }
+}
+.petum button {
+  cursor: pointer;
+  background-color: rgb(75, 197, 235);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  font-size: 65px;
+  color: rgb(17, 0, 255);
+
+h4 {
+    font-size: 15px;
+    position: relative;
+    top: -310px;left: 400%;
+
+}
+  img{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -352px;left: 510%;
+  }
+}
+
+.video {
+  width: 100%;
+  height: 100px;
+  background-color: blue;
+  position: relative;
+  top: 0;left: 0;
+  overflow: hidden;
+  padding: 20px;
+
+  img{
+    width: 110%;
+    height: 470px;
+    position: relative;
+    top: -200px;left: -30px;
+    border-radius: 15px;
+  }
+}
+
+.promos{
+  width: 80%;
+  position: relative;
+  top: 0;left: 13%;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+}
+
+  
+    @media (max-width: 768px) {
+      .video {
+        position: relative;
+        top: -40vh;left: 0;
+        width: 130%;
+      }
+      .video img {
+        top: -400%;left: 0;
+        width: 220%;
+        height: 800%;
+      }
+    }
+
+.prim{
+    width: 5%;
+    position: relative;
+    background: rgba(244, 248, 0, 0.13);
+    top: 0;left: 0;
+    height: auto;
+    border: var(--c3) 3px solid;
+    padding: 10px;
+    border-radius: 15px;
+
+    h2{
+      font-size: 25px;
+      color: var(--c6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    }
+     p{
+      font-size: 15px;
+      color: var(--c6);
+      text-align: justify;
+    }
+
+
+    img{
+      width: 20vw;
+      height: 20vh;
+      position: relative;
+      top: 0;left: 0;
+      border-radius: 15px;
+    }
+  }
+    @media (max-width: 768px) {
+      .promos, .prim, .carousel-btn-next, .carousel-promos {
+        display: none;
+        width: 0;
+      }
+    }
+.petgato{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10px;
+  h2 {
+    width: 100%;
+    text-align: center;
+  }
+  img{
+    width: 2%;
+    height: 20px;
+    position: relative;
+    top: 3px;left: -10px;
+  }
+}
+@media (max-width: 768px) {
+      .petgato {
+        position: relative;
+        top: -32vh;left: 0;
+        width: 80%;
+      }
+    }
+    
+
+/* ADIÇÕES PARA O CAROUSEL DAS PROMOÇÕES (MANUAL COM SETAS ROTATIVAS) */
+/* Wrapper do carousel - não conflita com o seu .carousel existente */
+.carousel-promos {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 140px;
+  overflow: hidden; /* Esconde itens fora da vista */
+  border-radius: 15px; /* Opcional: arredonda o container para combinar com .prim */
+  margin: 20px auto; /* Centraliza se necessário, mas mantém seu posicionamento */
+}
+
+/* Ajustes mínimos no .promos para o carousel (mantém display: flex e gap) */
+.promos {
+  display: flex;
+  gap: 3%;
+  transition: transform 0.4s ease-in-out; /* Animação suave no deslize */
+  width: max-content; /* Permite que a trilha seja mais larga */
+  padding: 10px 0; /* Espaço vertical para setas */
+}
+
+/* Ajustes mínimos no .prim para não encolher no flex (mantém todo o resto) */
+.prim {
+  width: 17%;
+  min-width: 100px; /* Largura mínima para ~5 itens visíveis; ajuste se quiser mais (ex.: 140px para 6) */
+  flex-shrink: 0; 
+  
+  img{
+    width: 100%;
+    height: 190px;
+  }
+}
+
+/* Estilos para as setas (novos, combinando com suas cores --c3) */
+.carousel-btn-prev,
+.carousel-btn-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(75, 197, 235, 0.8); /* Usa --c3 semi-transparente */
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10; /* Acima dos itens */
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn-prev {
+  left: 10px;
+}
+
+.carousel-btn-next {
+  right: 10px;
+}
+
+.carousel-btn-prev:hover,
+.carousel-btn-next:hover {
+  background: var(--c3, rgb(75, 197, 235)); /* Cor cheia no hover */
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Responsividade para as setas (integra com suas media queries) */
+@media (max-width: 768px) {
+  .carousel-promos {
+    width: 95%;
+  }
+  
+  .prim {
+    width: 45%; /* ~2 itens visíveis no mobile */
+    min-width: 140px;
+  }
+  
+  .carousel-btn-prev,
+  .carousel-btn-next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  width: 100%;
+  background-color:var(--c6); /* Verde escuro para tema pet/natureza */
+  color: #ffffff;
+  padding: 40px 0 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  width: 100%;
+  flex: 1;
+  min-width: 250px;
+  margin: 20px;
+  text-align: left;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  color: #002efd;
+  font-size: 18px;
+  border-bottom: 2px solid #ffe711; /* Verde claro para destaque */
+  padding-bottom: 5px;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #e6e6e6; /* Verde claro para links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 20px;
+  color: #0694e6;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #2d4ddb;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  padding: 10px 15px;
+  background-color: #e6d434;
+  color: #ffe7e7;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #0c09c5;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #2fbee2;
+  margin-top: 30px;
+  max-width: 1200px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+  font-size: 12px;
+  color: #1e9962;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: auto;
+    margin: 15px 0;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-form button {
+    border-radius: 4px;
+  }
+}
+
+
+
+
+
+
+
+.promocao{
+  width: 90%;
+  position: relative;
+  top: 0;left: -2%;
+  display: flex;
+
+  gap: 3%;
+}
+.prinm{
+    width: 60%;
+    position: relative;
+    top: 0;left: 3%;
+    height: 500px;
+    padding: 10px;
+    border-radius: 15px;
+
+    h2{
+      font-size: 25px;
+      color: var(--c6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    }
+     p{
+      font-size: 15px;
+      color: var(--c6);
+      text-align: justify;
+    }
+
+
+    img{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      top: 0;left: 0;
+      border-radius: 15px;
+    }
+  }
+
+
+
+
+
+
+
+.bomba{
+  background: var(--c7);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;left: 0;
+  padding: 20px;
+  h1{
+  color: rgb(255, 255, 255);
+  display: flex;
+  font: 3em 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+h5, p{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+  font-size: 15px;
+  position: relative;
+  
+}
+.container-carrossel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 450px;
+  margin: auto;
+}
+
+.carrosselum {
+  display: flex;
+  gap: 15px;  /* Espaçamento entre os produtos */
+  padding: 10px;
+  width: 85%;  /* Ajuste a largura conforme necessário */
+  overflow: hidden;  /* Garante que nada ultrapasse os limites */
+  justify-content: flex-start; /* Alinha os itens à esquerda */
+}
+
+.cardt {
+  background: white;
+  width: 300px;  /* Largura fixa para cada produto */
+  height: 340px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;  /* Garante que os produtos não se ajustem ao tamanho da tela */
+}
+
+.cardt img {
+  width: 100%;  /* Garante que a imagem ocupe toda a largura do card */
+  height: 200px;  /* Altura fixa para a imagem */
+  position: relative;
+  top: -8px;left: 0;
+}
+.vejamais{
+  
+  button {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;left: 80px;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+
+    img {
+      width: 10%;
+      height: 6%;
+      position: relative;
+      top: 8px;left: 0px;
+      
+    }
+  }
+}
+.btn {
+  background:var(--c3);
+  color: white;
+  width: 10%;
+  border: none;
+  font-size: 24px;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.btn:hover {
+  background: #555;
+}
+}
+@media (max-width: 768px) {
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .Containerheader {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+  .anuncios,
+  .juros,
+  .animal,
+  .section-fundo,
+  .tosavet,
+  #produtos-container,
+  .blog {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+  .carousel,
+  .mainContainer,
+  .mainContainer-dup,
+  .banner {
+    width: 100%;
+    left: 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  h1, h2, h3, p, button {
+    font-size: 90%;
+  }
+  .petum,
+  .banho,
+  .vet {
+    overflow: hidden;
+  }
+  button {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}
+    .ôblog  {
+      width: 100%;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 25px;
+      position: relative;
+      top: -20vh;left: 0;
+    }
+@media (max-width: 768px) {
+      .ôblog h1{
+        width: 100%;
+        position: relative;
+        top: -35vh;left: 0;
+        
+      }
+}  
+@media (max-width: 768px) {
+      .blog {
+        width: 100%;
+        position: relative;
+        top: -20vh;left: 0;
+        
+      }
+      .petum, .imn img {
+        position: relative;
+        top: -30vh;left: 0;
+        width: 100%;
+        height: 300px;
+      }
+      .petum p, .petum h3, .petum img {
+      display: none;
+      }
+    
+  .petum h2 {
+    width: 80%;
+    text-align: justify;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    top: 20px;left: 5%;
+  }
+
+.petum button {
+    position: relative;
+    top: -5px;left: -10px;
+    background: transparent;
+    border: none;
+    font-size: 10px;
+
+    h4 {
+      font-size: 10px;
+      position: relative;
+      top: -50%;left: 50%;
+    }
+  }  
+  }
+@media (max-width: 768px) {
+      .imn img {
+        position: relative;
+        top: -30vh;left: 0;
+        width: 10,
+        0%;
+        height: 300px;
+      }
+    }
+@media (max-width: 768px) {
+      .desp{
+        position: relative;
+        top: -60vh;left: -45px;
+        width: 70%;
+        height: 300px;
+        display: flex;
+      }
+      .promocao{
+        position: relative;
+        top: -80vh;left: 0;
+        width: 100%;
+        height: 200px;
+
+      }
+      .promocao img{
+        position: relative;
+        top: 0;left: -10px;
+        width: 150vh;
+        height: 300px;
+      }
+      
+    }
+@media (max-width: 768px) {
+      .bomba {
+        width: 100%;
+        height: 800px;
+        position: relative;
+        top: -70vh;left: 0;
+      }
+    }
+  
+@media (max-width: 768px) {
+      .carrosselum {
+        width: 100%;
+        height: 400px;
+        position: relative;
+        top: 0;left: 0;
+      }
+    }
+  
+
+@media (max-width: 768px) {
+      .footer {
+        position: relative;
+        top: -70vh;left: 0;
+      }
+    }
+.mainContainer {
+  padding: 20px;
+}
+
+.produtos-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.produto-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.produto-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.produto-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}

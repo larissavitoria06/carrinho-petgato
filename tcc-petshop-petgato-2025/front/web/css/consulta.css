@@ -1,0 +1,126 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    /* texto geral branco, pois fundo escuro */
+}
+
+/* Container principal centralizado */
+.container {
+    width: 100%;
+    background: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container do formulário */
+.container_formulario {
+    width: 100%;
+    max-width: 600px;
+    background: rgb(23, 140, 175);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Título */
+.container_formulario h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.container_formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.container_formulario label {
+    font-weight: bold;
+}
+
+/* Inputs, textarea e select - full width */
+.container_formulario input[type="text"],
+.container_formulario input[type="number"],
+.container_formulario input[type="email"],
+.container_formulario input[type="date"],
+.container_formulario textarea,
+.container_formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Inputs radio - pequenos ajustes */
+.container_formulario input[type="radio"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.container_formulario label[for^="cachorro"],
+.container_formulario label[for^="gato"],
+.container_formulario label[for^="peixe"],
+.container_formulario label[for^="passaro"] {
+    cursor: pointer;
+}
+
+/* Botões (submit e button) */
+.container_formulario button,
+.container_formulario input[type="submit"] {
+    background-color: rgb(20, 20, 20);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.container_formulario button:hover,
+.container_formulario input[type="submit"]:hover {
+    background-color: #333;
+}
+
+/* Espaçamento do botão de voltar */
+.back-button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button a button {
+    background-color: rgb(20, 20, 20);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button a button:hover {
+    background-color: #333;
+}
+
+#vol {
+    width: 100%;
+}

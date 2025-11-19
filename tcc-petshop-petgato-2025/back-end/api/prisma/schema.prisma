@@ -1,0 +1,46 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  senha String
+}
+
+model consulta {
+  id Int @id @default(autoincrement())
+  nomePet  String @db.VarChar(150)
+  especiePet Especie 
+  racaPet String @db.VarChar(25)
+  nomeProprietario String @db.VarChar(255)
+  nascpet DateTime
+  emailProprietario String @db.VarChar(255)
+  dados String?
+}
+
+model Login{
+  id Int @id @default(autoincrement())
+  email String @db.VarChar(100) @unique 
+  senha String @db.VarChar(60) @unique
+  nome String?
+}
+enum Especie {
+  cachorro
+  gato
+  peixe
+  passaro
+}
+
+model Produto{
+  id Int @id @default(autoincrement())
+  nome String @db.VarChar(150)
+  descricao String @db.VarChar(255)
+  preco Float
+  imagem String @db.VarChar(255)
+  categoria Especie
+}

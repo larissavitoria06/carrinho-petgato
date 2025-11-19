@@ -1,0 +1,471 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORES DO SITE */
+:root {
+  --font-family: 'CircularXX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --c1: linear-gradient(to right, rgb(180, 227, 241), rgb(75, 197, 235));
+  --c7: linear-gradient(to right,  rgba(180, 227, 241, 0.541), rgba(56, 142, 241, 0.466));
+  --c2: rgb(180, 227, 241);
+  --c3: rgb(75, 197, 235);
+  --c6: rgba(0, 31, 71, 0.829);
+  --c4: rgb(21, 23, 134);
+  --c5: rgb(136, 132, 132); /* COR DO TEXTO DOS BOTÕES */
+  --t1: rgba(80, 34, 74, 0.3);
+  --t2: rgba(0, 0, 0, 0.7);
+}
+
+/* CORPO DA PÁGINA */
+body {
+  width: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ESCONDE A ROLAGEM LATERAL */
+  display: flex;
+  flex-direction: column;
+}
+
+/* CABEÇALHO UM */
+header {
+  background: rgba(0, 31, 71, 0.158);
+  
+  color: black;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* MANTÉM O CABEÇALHO ACIMA DOS OUTROS ITENS DO SITE */
+  justify-content: space-around; /* DISTRIBUI OS ITENS DO CABEÇALHO */
+  align-items: center; /* ALINHA OS ITENS DO CABEÇALHO */
+}
+
+header h1 {
+    width: 50%;
+  font-family: 'Brush Script MT', cursive;
+  color: rgb(247, 223, 15);
+  font-size: 36.5px; /* TAMANHO DO TEXTO */
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 8%; /* POSIÇÃO DO TEXTO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DO TEXTO, VAI APARECER UMA MÃOZINHA */
+}
+
+header img {
+  width: 37px; /* TAMANHO DAS IMAGENS */
+  border: none;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255); /* COR DO TEXTO */
+  font-weight: bold; /* TEXTO EM NEGRITO */
+  cursor: pointer; /* AO PASSAR O MOUSE EM CIMA DOS BOTÕES, VAI APARECER UMA MÃOZINHA */
+}
+
+header button:hover {
+  color: white; /* COR DO TEXTO AO PASSAR O MOUSE EM CIMA */
+  transition: 0.3s; /* TEMPO DA TRANSIÇÃO */
+  font-size: 1.8vh;
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DO TÍTULO */
+@media (max-width: 768px) {
+  header h1 {
+    width: 60%;
+    font-size: 30px;
+  }
+}
+
+/* 🔹 QUANDO A TELA FOR PEQUENA, DIMINUI O TAMANHO DAS IMAGENS */
+@media (max-width: 768px) {
+  header button img {
+    width: 25px; /* diminui o tamanho das imagens */
+  }
+}
+
+
+/* Estilo para a div de fundo */
+.fundo {
+    background-image: url('https://supertails.com/cdn/shop/articles/cat-vaccination222.jpg?v=1743074308'); /* Caminho para a imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    position: relative;
+    top: -95px;left: 0;
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição */
+    width: 110vw; /* Largura total da viewport */
+    height: 90vh; /* Altura total da viewport */
+    display: flex;
+    justify-content: center; /* Centraliza a div de texto */
+    align-items: center; /* Centraliza a div de texto verticalmente */
+}
+.text{
+  width: 50%;
+}
+
+/* Estilo para a div com o texto */
+.texto {
+    width: 50%;
+    position: relative;
+    background-color: var(--c6); /* Fundo escuro semitransparente */
+    width: 150%;height: 100%;
+    position: relative;
+    color: white; /* Cor do texto */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Alinha o texto ao centro */
+
+
+& button{
+  background: yellow;
+  border: none;
+  padding: 3rem;
+  position: relative;
+  top: 330px;
+  border-radius: 0 90px 0 90px;
+}
+
+  }
+
+/* Estilo para o título */
+.texto h1 {
+  position: relative;
+  top: 220px;left: 10%;
+    font-size: 3rem; /* Tamanho do título */
+    margin: 0;
+}
+
+/* Estilo para o parágrafo */
+.texto p {
+  width: 80%;
+  text-align: justify;
+  position: relative;
+  top: 260px;left: 18%;
+    font-size: 1.2rem; /* Tamanho do parágrafo */
+    margin-top: 10px;
+}
+.confira{
+  width: 50%;
+  height: 30vh;
+  position: relative;
+  top: -110px;left: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  & img{
+    width: 10%;
+    height: 10vh;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 60%;
+    text-align: center;
+  }
+}
+.receba{
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  left: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+
+  & textoum{
+    width: 0%;
+    height: 60vh;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  & imgum{
+    width: 30%;
+    height: 60vh;
+    position: relative;
+    top: 2%;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+    position: relative;
+    top: 20%;
+  }
+  & h2{
+    font-size: 2rem;
+    color: var(--c4);
+    position: relative;
+    top: 40%;
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 70%;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    justify-content: justify;
+    align-items: center;
+    & img{
+    width: 5%;
+    height: 2vh;
+    position: relative;
+    top: -5%;
+  }
+  }
+}
+
+
+.parcele{
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  left: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+
+  & img{
+    width: 40%;
+    height: 50vh;
+    position: relative;
+    top: 2%;
+  }
+  & textoum{
+    width: 0%;
+    height: 60vh;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  & imgum{
+    width: 30%;
+    height: 60vh;
+    position: relative;
+    top: 2%;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+    position: relative;
+    top: 20%;
+  }
+  & h2{
+    font-size: 2rem;
+    color: var(--c4);
+    position: relative;
+    top: 40%;
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 70%;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    justify-content: justify;
+    align-items: center;
+    & img{
+    width: 5%;
+    height: 2vh;
+    position: relative;
+    top: -5%;
+  }
+  }
+}
+
+
+
+
+.frete{
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  left: 12%;top: -70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+
+  & imgdois{
+    width: 70%;
+    height: 70vh;
+    position: relative;
+    top: 2%;
+  }
+  & textoum{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+    position: relative;
+    top: 20%;
+  }
+  & h2{
+    font-size: 2rem;
+    color: var(--c4);
+    position: relative;
+    top: 40%;
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 120%;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    justify-content: justify;
+    align-items: center;
+    & img{
+    width: 5%;
+    height: 2vh;
+    position: relative;
+    top: -5%;
+  }
+  }
+}
+
+
+
+
+.retire{
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  left: 19.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+
+  & img{
+    width: 40%;
+    height: 50vh;
+    position: relative;
+    top: 2%;
+  }
+  & textoum{
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  & imgum{
+    width: 30%;
+    height: 60vh;
+    position: relative;
+    top: 2%;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+    position: relative;
+    top: 20%;
+    text-align: justify;
+  }
+  & h2{
+    font-size: 2rem;
+    color: var(--c4);
+    position: relative;
+    top: 40%;
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 70%;
+    color: black;
+    top: 40%;
+    & img{
+    width: 5%;
+    height: 2vh;
+    position: relative;
+    top: -5%;
+    text-align: justify;
+  }
+  }
+}
+
+
+.troque{
+  width: 80%;
+  height: 70vh;
+  position: relative;
+  left: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+
+  & textoum{
+    width: 0%;
+    height: 60vh;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  & imgum{
+    width: 30%;
+    height: 60vh;
+    position: relative;
+    top: 2%;
+  }
+  & h1{
+    font-size: 3.5rem;
+    color: var(--c4);
+    position: relative;
+    top: 20%;
+  }
+  & h2{
+    font-size: 2rem;
+    color: var(--c4);
+    position: relative;
+    top: 40%;
+  }
+  & p{
+    font-size: 1.2rem;
+    width: 80%;
+    color: black;
+    text-align: center;
+    position: relative;
+    top: 40%;
+    justify-content: justify;
+    align-items: center;
+    text-align: justify;
+    & img{
+    width: 5%;
+    height: 2vh;
+    position: relative;
+    top: -5%;
+  }
+  }
+}
+

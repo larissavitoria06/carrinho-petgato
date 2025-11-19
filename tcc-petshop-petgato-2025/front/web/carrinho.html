@@ -2,10 +2,17 @@
 <html lang="pt-br">
 
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrinho de Compras</title>
   <link rel="stylesheet" href="./css/style7.css">
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="./css/carrinho.css">
+>>>>>>> 41bfabb420dac5010fa1c404830d6bf86be22d1c
 </head>
 
 <body>
@@ -17,47 +24,6 @@
   <main>
     <h2>Carrinho de Compras</h2>
     <p>Produtos</p>
-
-    <div class="card-container" id="card-container">
-      <!-- Os cards serão inseridos dinamicamente aqui -->
-    </div>
-
-    <!-- Seção de Cupons de Desconto -->
-    <h6>Melhores promoções <p>e descontos para Você</p></h6>
-
-    <div class="cupom-container">
-      <h4>Cupons de Desconto</h4>
-
-      <div class="cupom" onclick="copiarCupom('CUPOM10')">
-        <p id="CUPOM10">CUPOM10</p>
-        <span>10% OFF em qualquer compra</span>
-      </div>
-
-      <div class="cupom" onclick="copiarCupom('FRETEGRATIS')">
-        <p id="FRETEGRATIS">FRETEGRATIS</p>
-        <span>Frete grátis em pedidos acima de R$ 100</span>
-      </div>
-
-      <div class="cupom" onclick="copiarCupom('DESCONTO15')">
-        <p id="DESCONTO15">DESCONTO15</p>
-        <span>R$ 15 de desconto em compras acima de R$ 170</span>
-      </div>
-
-      <div class="cupom" onclick="copiarCupom('DESCONTO25')">
-        <p id="DESCONTO25">DESCONTO25</p>
-        <span>R$ 25 de desconto em compras acima de R$ 200</span>
-      </div>
-
-      <div class="cupom" onclick="copiarCupom('GEIOB940Z6')">
-        <p id="GEIOB940Z6">GEIOB940Z6</p>
-        <span>5% de desconto em compras acima de R$ 10</span>
-      </div>
-
-      <div class="cupom" onclick="copiarCupom('SUPER50')">
-        <p id="SUPER50">SUPER50</p>
-        <span>50% OFF para pedidos de R$ 310+</span>
-      </div>
-    </div>
 
     <div class="card-container2">
       <h3 class="titulo-card">Preços</h3>
@@ -75,11 +41,6 @@
       <div class="Subtotal-compra">
         R$ 129,90
         <p>SubTotal</p>
-      </div>
-
-      <div class="Subtotal-compra">
-        R$ 00,00
-        <p>Desconto</p>
       </div>
       
       <div class="Total">
@@ -121,12 +82,6 @@
         <input type="number" id="cep" placeholder="00000-000" required>
       </label>
 
-      <label for="cupom">
-        Desconto
-        <input type="text" id="text" placeholder="seu cupom" required>
-      </label>
-
-
       <div class="oferta-banner">
         <p>🔴 Oferta limitada: ICMS 20% discount grátis, <strong>economize R$2,01</strong></p>
         <p>Entrega: 6-17 dias, ou probabilidade alta de entrega em até <strong>9 dias</strong></p>
@@ -145,23 +100,11 @@
         </label>
 
         <label class="metodo-item" data-method="credit-card">
-          <input type="radio" name="metodoPagamento" value="credito">
+          <input type="radio" name="metodoPagamento" value="cartoes">
           <div class="metodo-content">
-            <span class="metodo-label">Cartão de crédito local com parcelamento</span>
+            <span class="metodo-label">Cartões, credito/ debito 💳</span>
             <div class="bandeiras">
               <img src="./pagamentos/icone cartão 2.jpg" alt="Mastercard">
-              <img src="./pagamentos/nubank.png" alt="Nubank">
-              <img src="./pagamentos/banco brasil.png" alt="Banco do Brasil">
-            </div>
-          </div>
-        </label>
-
-        <label class="metodo-item" data-method="debit-card">
-          <input type="radio" name="metodoPagamento" value="debito">
-          <div class="metodo-content">
-            <span class="metodo-label">Cartão de débito local/Internacional 💳</span>
-            <div class="bandeiras">
-              <img src="./pagamentos/melhor" alt="Cartão">
               <img src="./pagamentos/nubank.png" alt="Nubank">
               <img src="./pagamentos/banco brasil.png" alt="Banco do Brasil">
             </div>
@@ -192,6 +135,7 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <div class="footer-section">
         <h3>Links Úteis</h3>
         <ul>
@@ -229,6 +173,9 @@
   </footer>
 
   <script src="./js/js4.js"></script>
+=======
+    <script src="./js/carrinho.js"></script>
+>>>>>>> 41bfabb420dac5010fa1c404830d6bf86be22d1c
 </body>
 
 </html>
